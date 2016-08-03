@@ -1,5 +1,6 @@
 import React from 'react';
 
+import store from '../store';
 import Nav from './Nav';
 
 const Header = React.createClass({
@@ -8,7 +9,6 @@ const Header = React.createClass({
       <div id="Header">
       Here's the header a-whahoooo
         <Nav/>
-
       </div>
     );
   }

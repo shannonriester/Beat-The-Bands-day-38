@@ -1,31 +1,32 @@
 import React from 'react';
 
 import store from '../../store';
-import Login from './Login';
-import Signup from './Signup';
-import Logout from './Logout';
+import Modal from '../Modal';
 
 const SessionNav = React.createClass({
-
+//see SessionModel for when to display signup-modal/login-modal
   render: function() {
+    
     let sessionNav;
-    if (session.authtoken) {
+    if (store.session.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
           <input id="logoutBtn" type="button" value="logout" ref="logout" />
-        </div>);
-    } else {
+        </div>
+        );
+    } else if (!store.session.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
           <input id="loginBtn" type="button" value="login" ref="login" />
           <input id="signupBtn" type="button" value="sign up" ref="signup" />
+          {modal}
         </div>
       );
     }
-    return (
-        {sessionNav}
-    );
+    return (sessionNav);
   }
+
+
 });
 
 export default SessionNav;

@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module './Login' from '/Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/components/Controllers'");
+console.error("SyntaxError: /Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/components/Modal.js: Unexpected token (17:6) while parsing file: /Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/components/Modal.js");

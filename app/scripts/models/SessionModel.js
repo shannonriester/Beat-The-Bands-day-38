@@ -4,10 +4,14 @@ import store from '../store';
 
 const SessionModel = Backbone.Model.extend({
   idAttribute: '_id',
-  urlRoot: `https://baas.kinvey.com/user/${store.settings.appKey}/login`,
+  urlRoot: function() {
+    return `https://baas.kinvey.com/user/${store.settings.appKey}/login`;
+  },
   defaults: {
     username: '',
     votes: '',
+    isLoggingIn: false,
+    isSigningUp: false,
   },
   parse: function(response) {
     if (response) {
