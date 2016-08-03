@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/entry.js: Unexpected token (9:34) while parsing file: /Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/entry.js");
