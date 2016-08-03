@@ -12,7 +12,7 @@ const SearchCollection = Backbone.Collection.extend({
         console.log(data);
       }
     });
-  }
+  },
   newSearch: function(){}
 });
 

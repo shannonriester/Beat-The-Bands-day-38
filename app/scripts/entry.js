@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import $ from 'jquery';
 
-import App from './components/App';
+import store from './store';
 import LandingPage from './components/Controllers/LandingPage';
 import ResultsPage from './components/Controllers/ResultsPage';
+import App from './components/App';
 import Header from './components/Header';
 
 
@@ -22,7 +24,6 @@ const router = (
     </Route>
   </Router>
 );
-
 
 // const router = (
 //   <Route path="/" component={App}>
@@ -44,9 +45,9 @@ ReactDOM.render(router, document.getElementById('container'));
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   if (jqueryAjax.url.indexOf('spotify') === -1) {
     if (localStorage.authtoken) {
-      xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`)
+      xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
     } else {
-      xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`)
+      xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
     }
   }
-})
+});

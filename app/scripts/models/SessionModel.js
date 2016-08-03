@@ -1,8 +1,10 @@
 import Backbone from 'backbone';
 
+import store from '../store';
+
 const SessionModel = Backbone.Model.extend({
   idAttribute: '_id',
-  urlRoot: `https://baas.kinvey.com/user/kid_rkjTLZY_/login`,
+  urlRoot: `https://baas.kinvey.com/user/${store.settings.appKey}/login`,
   defaults: {
     username: '',
     votes: '',
@@ -19,20 +21,16 @@ const SessionModel = Backbone.Model.extend({
   login: function(username, password) {
     this.save(
       { username: username, password: password},
-      {
-        success: (model, response) => {
+      { success: (model, response) => {
           console.log('USER SIGNED IN');
-          console.log('username', username);
+          console.log('username ', username);
           localStorage.authtoken = response._kmd.authtoken;
-          this.unset(password);
+          this.unset('password');
           this.trigger('change');
       },
-      {
-        error: function(model, response) {
-          console.log('ERROR: FAILED TO LOGIN');
-        }
-      },
-
+       error: function(model, response) {
+         console.log('ERROR: Login Failed');
+      }
     });
   },
   signup: function() {},

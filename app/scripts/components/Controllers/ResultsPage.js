@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Search from './Search';
-import Results from './Results';
+import Search from '../Search';
+import Results from '../Results';
 
 const ResultsPage = React.createClass({
   // console.log(this.props);

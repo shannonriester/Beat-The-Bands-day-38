@@ -1,12 +1,15 @@
 import React from 'react';
 
+import SessionNav from './Controllers/SessionNav';
+
 const Nav = React.createClass({
+
   render: function() {
     return (
       <nav className="Nav">
-        <input id="loginBtn" type="button" value="login" ref="login" />
-        <input id="signupBtn" type="button" value="sign up" ref="signup" />
-        <input id="logoutBtn" type="button" value="logout" ref="logout" />
+        <input className="homeBtn navBtn" type="button" value="home" ref="homeBtn" />
+        <input className="votesBnt navBtn" type="button" value="votes" ref="votesBtn" />
+        <SessionNav />
       </nav>
     );
   }

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Router, hashHistory } from 'react-router';
 
+import store from '../store';
+
 const Search = React.createClass({
   searchFunction: function(e) {
     e.preventDefault();
     let searchQuery = this.refs.searchInput.value;
     console.log(searchQuery);
     store.searchCollection.getResults(searchQuery);
-    hashHistory.push('/bands/results');
+    hashHistory.push('/bands');
   },
   render: function() {
     return (

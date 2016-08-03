@@ -1,1 +1,1 @@
-console.error("Error: Cannot find module './Search' from '/Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/components/Controllers'");
+console.error("Error: Cannot find module './Login' from '/Users/shannonriester/Desktop/tiy/day-38/assignments/BeatTheBands/app/scripts/components/Controllers'");
