@@ -16,6 +16,8 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - Set up a new git repo
 - Run `npm install`
 - if you get permission errors you may need to run `sudo npm install` to install a couple global dependencies
+- Additional Installations:
+  - `npm install --save velocity-react`
 
 ## Use
 - `npm install` will scaffold your project AND start the dev server
