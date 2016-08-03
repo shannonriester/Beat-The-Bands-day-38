@@ -37,8 +37,28 @@ const SessionModel = Backbone.Model.extend({
       }
     });
   },
-  signup: function() {},
-  logout: function() {},
+  signup: function(username, password) {
+    this.save({
+      username: username,
+      password: password,
+    },
+    {
+      url: `https://baas.kinvey.com/user/kid_Bk73T0yt/`,
+      success: (model, response) => {
+        model.unset('password');
+        localStorage.authtoken = response._kmd.authtoken;
+        this.trigger('change')
+      },
+      error: function(model, response) {
+        console.log('ERROR: Sign Up Failed');
+      }
+    })
+  },
+  logout: function(){
+    localStorage.removeItem('authtoken');
+    this.clear();
+    this.trigger('change')
+  },
   retrieve: function() {},
 
 });
