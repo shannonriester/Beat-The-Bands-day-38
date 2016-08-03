@@ -13,7 +13,7 @@ const router = (
     <Route path="/" component={App}>
       <IndexRoute component={LandingPage}/>
       <Route path="/bands" component={ResultsPage}>
-        <IndexRoute onEnter={Header}/>
+        <IndexRoute component={Header}/>
         {//
         // <Route path="/bands/search" comoponent={Results}/>
         // <Route path="/bands/votes" comoponent={AllVotes}/>

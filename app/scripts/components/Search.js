@@ -6,7 +6,8 @@ const Search = React.createClass({
     e.preventDefault();
     let searchQuery = this.refs.searchInput.value;
     console.log(searchQuery);
-    hashHistory.push('/bands');
+    store.searchCollection.getResults(searchQuery);
+    hashHistory.push('/bands/results');
   },
   render: function() {
     return (
