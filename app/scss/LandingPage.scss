@@ -10,22 +10,29 @@
   #search-bar, #search-button {
     padding: 5%;
     width: 40vw;
+    border-radius: 15px;
+    font-size: 1.5em;
+  }
+  #search-bar {
+    color: #FFF;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
-    // color: red;
+    outline: none;
   }
-  #search-bar {
-    color: #8D32D1;
+  #search-bar::-webkit-input-placeholder,  { /* Chrome/Opera/Safari */
+    color: rgba(#FFF, .6);
+  }
+  #search-bar::-moz-placeholder, :-moz-placeholder { /* Firefox 19+/Firefox 18- */
+    color: rgba(#FFF, .6);
   }
   #search-button {
-    background: transparent;
+    background: rgba(#FFF, .2);
+    color: #FFF;
+    font-weight: 300;
     border: solid #FFF 2px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    border-left: none;
-    // border-radius-left: none;
-    color: #FFF;
     &:hover {
       color: #D83B81;
       background: #FFF;

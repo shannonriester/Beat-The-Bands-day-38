@@ -9,6 +9,11 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - es2015 and babel, including module syntax
 - mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
 - sass (.scss)
+- GeoLocation:
+  - Only used when geolocation is successful
+  - User must agree to retrieving position in order to successfully get current position
+  - See SessionModel.js in app/scripts/Controllers
+
 
 ## Installation
 - Clone this repo (or fork then clone, if you prefer)

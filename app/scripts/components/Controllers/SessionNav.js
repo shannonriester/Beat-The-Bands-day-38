@@ -10,10 +10,15 @@ const SessionNav = React.createClass({
       authtoken: store.session.get('authtoken')
     }
   },
-  componentDidMount: function() {
-    store.session.on('change', () => {
-      this.setState({authtoken:store.session.get('authtoken')});
-    });
+  updateState: function () {
+    this.setState({authtoken: store.session.get('authtoken')});
+  },
+  componentDidMount: function () {
+    store.session.on('change', () => this.updateState);
+    store.session.getLocation();
+  },
+  componentWillUnMount: function () {
+    store.session.off('change', this.updateState);
   },
   runLogout: function () {
     store.session.logout();
@@ -29,7 +34,7 @@ const SessionNav = React.createClass({
   hideModal: function() {
     this.setState({hideModal:true})
   },
-  render: function() {
+  render: function () {
     let modal;
     if (!this.state.hideModal) {
       modal = <Modal hideModal={this.hideModal}/>;

@@ -13,6 +13,8 @@ const Search = React.createClass({
       console.log('YOU NEED TO SEARCH SOMETHING!');
     } else {
       store.searchCollection.getResults(searchQuery);
+
+      //this is not helping prevent zombies the right way!
       hashHistory.push('/bands');
     }
   },

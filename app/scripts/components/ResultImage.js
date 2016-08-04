@@ -3,10 +3,15 @@ import React from 'react';
 import store from '../store';
 
 const ResultImage = React.createClass({
+
   render: function() {
+    let image = this.props.band.imageUrl;
+    let styles = {
+    backgroundImage: 'url(' + image + ')',
+    }
     return (
       <li className="band-result">
-        <img className="coverImg" src={this.props.band.imageUrl}/>
+        <div className="coverImg" style={styles}></div>
         <p className="band-name">{this.props.band.name}</p>
         <data className="popularity">{this.props.band.popularity}</data>
         <data className="followers">{this.props.band.followers}</data>

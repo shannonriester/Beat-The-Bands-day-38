@@ -9,10 +9,14 @@ const ResultsPage = React.createClass({
   getInitialState: function () {
     return {searchResults: store.searchCollection.toJSON()}
   },
+  updateState: function () {
+    this.setState({searchResults: store.searchCollection.toJSON()});
+  },
   componentDidMount: function () {
-    store.searchCollection.on('update change', () => {
-      this.setState({searchResults: store.searchCollection.toJSON()});
-    });
+    store.searchCollection.on('update change', this.updateState);
+  },
+  componentWillUnMount: function () {
+    store.searchCollection.off('update', this.updateState);
   },
   render: function () {
     console.log(this.state.searchResults);
