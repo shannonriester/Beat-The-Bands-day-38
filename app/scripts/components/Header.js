@@ -6,7 +6,7 @@ import Nav from './Nav';
 const Header = React.createClass({
   render: function() {
     return (
-      <div id="Header">
+      <div id="header">
         <Nav/>
       </div>
     );

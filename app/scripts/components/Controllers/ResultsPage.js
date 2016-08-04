@@ -10,7 +10,6 @@ const ResultsPage = React.createClass({
   getInitialState: function () {
     return {
       searchResults: store.searchCollection.toJSON(),
-      // modalState: false,
     };
   },
   updateState: function () {

@@ -5,7 +5,7 @@ import Header from './Header';
 const App = React.createClass({
   render: function() {
       return (
-        <div id="App">
+        <div id="app">
           {this.props.children}
         </div>
       );

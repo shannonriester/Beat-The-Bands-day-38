@@ -31,6 +31,7 @@ const SearchCollection = Backbone.Collection.extend({
       }
     });
   },
+
 });
 
 export default SearchCollection;

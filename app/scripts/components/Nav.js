@@ -6,7 +6,7 @@ const Nav = React.createClass({
 
   render: function() {
     return (
-      <nav className="Nav">
+      <nav className="nav">
         <input className="homeBtn navBtn" type="button" value="home" ref="homeBtn" />
         <input className="votesBnt navBtn" type="button" value="votes" ref="votesBtn" />
         <SessionNav />

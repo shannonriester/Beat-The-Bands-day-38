@@ -5,9 +5,11 @@ import store from '../store';
 
 const BandModal = React.createClass({
   hideModal: function (e) {
-    store.searchCollection.get(this.props.band.id).set('viewing', false);
-    console.log(store.searchCollection.get(this.props.band.id).get('viewing'));
     e.stopPropagation();
+    // let model = store.searchCollection.get(this.props.band.id);
+    // store.bandModel.toggleBandModal(model);
+    store.searchCollection.get(this.props.band.id).set('viewing', false);
+
   },
   voteFunction: function () {
     if (store.session.get('authtoken')) {
