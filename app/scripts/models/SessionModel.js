@@ -4,11 +4,10 @@ import store from '../store';
 
 const SessionModel = Backbone.Model.extend({
   idAttribute: '_id',
-  urlRoot: function() {
-    return `https://baas.kinvey.com/user/${store.settings.appKey}/login`;
-  },
+  urlRoot: `https://baas.kinvey.com/user/kid_Bk73T0yt/login`,
   defaults: {
     username: '',
+    authtoken: '',
     votes: '',
     isLoggingIn: false,
     isSigningUp: false,
@@ -26,14 +25,15 @@ const SessionModel = Backbone.Model.extend({
     this.save(
       { username: username, password: password},
       { success: (model, response) => {
-          console.log('USER SIGNED IN');
-          console.log('username ', username);
+          console.log('USER SIGNED IN', username);
+
           localStorage.authtoken = response._kmd.authtoken;
+          this.set('authtoken', response._kmd.authtoken);
           this.unset('password');
           this.trigger('change');
       },
        error: function(model, response) {
-         console.log('ERROR: Login Failed');
+         throw new Error('LOGIN FAILED');
       }
     });
   },
@@ -45,21 +45,38 @@ const SessionModel = Backbone.Model.extend({
     {
       url: `https://baas.kinvey.com/user/kid_Bk73T0yt/`,
       success: (model, response) => {
-        model.unset('password');
+        console.log('USER SIGNED UP!', username);
+
         localStorage.authtoken = response._kmd.authtoken;
-        this.trigger('change')
+        this.set('authtoken', response._kmd.authtoken);
+        this.unset('password');
+        this.trigger('change');
       },
       error: function(model, response) {
-        console.log('ERROR: Sign Up Failed');
+        throw new Error('FAILED TO SIGN UP');
       }
-    })
+    });
   },
   logout: function(){
+    this.set('isLoggingIn', false);
+    this.set('isSigningUp', false);
     localStorage.removeItem('authtoken');
     this.clear();
-    this.trigger('change')
+    this.trigger('change');
+    console.log('USER LOGGED OUT!');
+
   },
-  retrieve: function() {},
+  retrieve: function() {
+    this.fetch({
+      url: `https://baas.kinvey.com/user/kid_Bk73T0yt/_me`,
+      success: () => {
+          console.log('retrieved: ', this);
+      },
+      error: function(response) {
+        throw new Error('COULD NOT FETCH USER!')
+      }
+    });
+  },
 
 });
 

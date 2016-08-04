@@ -5,18 +5,29 @@ import store from '../store';
 const Modal = React.createClass({
   loginFunction: function (e){
     e.preventDefault();
+
     let username = this.refs.username.value;
     let password = this.refs.password.value;
 
     store.session.login(username, password);
+    store.session.set('isLoggingIn', false);
+
     this.props.hideModal();
   },
   signupFunction: function (e){
-    store.session.signup();
+    e.preventDefault();
+
+    let username = this.refs.username.value;
+    let password = this.refs.password.value;
+
+    store.session.signup(username, password);
+    store.session.set('isSigningUp', false);
+
     this.props.hideModal();
   },
   cancelFunction: function () {
     store.session.set('isLoggingIn', false);
+    store.session.set('isSigningUp', false);
     this.props.hideModal();
   },
   render: function () {
@@ -38,7 +49,6 @@ const Modal = React.createClass({
           <input type="text" placeholder="username" ref="username" />
           <input type="text" placeholder="email" ref="email" />
           <input type="password" placeholder="password" ref="password" />
-          <input type="password2" placeholder="password2" ref="password2" />
           <input type="submit" value="submit" ref="submit" onClick={this.signupFunction} />
           <input type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
         </form>

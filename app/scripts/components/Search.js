@@ -6,10 +6,15 @@ import store from '../store';
 const Search = React.createClass({
   searchFunction: function(e) {
     e.preventDefault();
+
     let searchQuery = this.refs.searchInput.value;
-    console.log(searchQuery);
-    store.searchCollection.getResults(searchQuery);
-    hashHistory.push('/bands');
+    if (searchQuery === '' || searchQuery === ' ') {
+      //figure out how to shake the searchbar
+      console.log('YOU NEED TO SEARCH SOMETHING!');
+    } else {
+      store.searchCollection.getResults(searchQuery);
+      hashHistory.push('/bands');
+    }
   },
   render: function() {
     return (
