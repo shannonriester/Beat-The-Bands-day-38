@@ -7,7 +7,6 @@ const SessionModel = Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/user/kid_Bk73T0yt/login`,
   defaults: {
     username: '',
-    authtoken: '',
     votes: '',
     isLoggingIn: false,
     isSigningUp: false,
@@ -28,7 +27,7 @@ const SessionModel = Backbone.Model.extend({
           console.log('USER SIGNED IN', username);
 
           localStorage.authtoken = response._kmd.authtoken;
-          this.set('authtoken', response._kmd.authtoken);
+          // this.set('authtoken', response._kmd.authtoken);
           this.unset('password');
           this.trigger('change');
       },
@@ -48,7 +47,7 @@ const SessionModel = Backbone.Model.extend({
         console.log('USER SIGNED UP!', username);
 
         localStorage.authtoken = response._kmd.authtoken;
-        this.set('authtoken', response._kmd.authtoken);
+        // this.set('authtoken', response._kmd.authtoken);
         this.unset('password');
         this.trigger('change');
       },
