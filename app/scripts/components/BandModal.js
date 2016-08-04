@@ -4,6 +4,11 @@ import store from '../store';
 
 
 const BandModal = React.createClass({
+  hideModal: function (e) {
+    store.searchCollection.get(this.props.band.id).set('viewing', false);
+    console.log(store.searchCollection.get(this.props.band.id).get('viewing'));
+    e.stopPropagation();
+  },
   voteFunction: function () {
     if (store.session.get('authtoken')) {
       store.voteModel.voteToggle(this.props.band);
@@ -22,12 +27,13 @@ const BandModal = React.createClass({
           <div className="modal-coverImg" style={styles}>
             <h2>{this.props.band.name}</h2>
             <section className="voting-section">
-              <input className="vote-btn" type="button" value="vote" onClick="voteFunction" ref="voteBtn"/>
-              <data className="votes">0</data>
+              <input className="vote-btn" type="button" value="vote" onClick={this.voteFunction} ref="voteBtn"/>
+              <data className="votes-data">0</data>
             </section>
           </div>
-          <data>{this.props.band.popularity}</data>
+          <data className="pop-data">{this.props.band.popularity}</data>
           <p className="spotify-link">Check out <a href={this.props.band.spotify_url}>{this.props.band.name}</a> on Spotify</p>
+          <input className="back-btn" type="button" value="back" onClick={this.hideModal} />
 
         </div>
       </div>
