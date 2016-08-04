@@ -1,12 +1,15 @@
 import SearchCollection from './collections/SearchCollection';
-// import VotedCollection from './collections/VotedCollection';
+import VotedCollection from './collections/VotedCollection';
 import BandModel from './models/BandModel';
 import SessionModel from './models/SessionModel';
+import VoteModel from './models/VoteModel';
+
 
 export default({
     session: new SessionModel(),
     searchCollection: new SearchCollection(),
     bandModel: new BandModel(),
+    voteModel: new VoteModel(),
     settings: {
       appKey: 'kid_Bk73T0yt',
       appSecret: '459bd8dee40445efaff271ecd91675c2',

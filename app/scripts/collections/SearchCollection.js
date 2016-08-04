@@ -17,7 +17,7 @@ const SearchCollection = Backbone.Collection.extend({
         this.reset();
         let bandData = data.artists.items.forEach((data, i, arr) => {
           if (data.images[0]) {
-            this.fetch({
+            this.add({
               id: data.id,
               type: data.artist,
               name: data.name,

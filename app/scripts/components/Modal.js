@@ -34,7 +34,7 @@ const Modal = React.createClass({
     let content;
     if (store.session.get('isLoggingIn')) {
       content = (
-        <form className="modal-content" onSubmit={this.loginFunction}>
+        <form className="sessionModal-content" onSubmit={this.loginFunction}>
           <h2>Login</h2>
           <input type="text" placeholder="username" ref="username" />
           <input type="password" placeholder="password" ref="password" />

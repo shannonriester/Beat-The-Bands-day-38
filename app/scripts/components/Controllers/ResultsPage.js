@@ -4,12 +4,13 @@ import $ from 'jquery';
 import store from '../../store';
 import Search from '../Search';
 import ResultImage from '../ResultImage';
+import BandModal from '../BandModal';
 
 const ResultsPage = React.createClass({
   getInitialState: function () {
     return {
       searchResults: store.searchCollection.toJSON(),
-      showBandModal: false,
+      modalState: null,
     };
   },
   updateState: function () {
@@ -21,23 +22,23 @@ const ResultsPage = React.createClass({
   componentWillUnMount: function () {
     store.searchCollection.off('update', this.updateState);
   },
-  showBandModal: function () {
-    this.setState({showBandModal:true});
+  showBandModal: function (id) {
+    this.setState({modalState:id});
   },
   hideBandModal: function () {
-    this.setState({showBandModal:false});
+    this.setState({modalState:null});
   },
   render: function () {
+    // console.log(this.state.showBandModal);
+    // if (this.state.showBandModal) {
+    //   console.log(store.searchCollection.get(this.state.showBandModal));
+    // }
 
-    let bandModal;
     let searchResults;
+    searchResults = this.state.searchResults.map((band, i) => {
 
-    searchResults = this.state.searchResults.map(function(band, i) {
-      if (this.state.showBandModal) {
-        bandModal = <BandModal showBandModal={this.showBandModal} hideBandModal={this.hideBandModal} />
-      }
 
-      return <ResultImage key={i} band={band}>{bandModal}</ResultImage>
+      return (<ResultImage key={i} band={band} modalState={this.state.modalState===band.id} showBandModal={this.showBandModal}/>);
     });
 
     return (
@@ -46,6 +47,7 @@ const ResultsPage = React.createClass({
         <Search />
         <h2>Your Search Results</h2>
           <ul>{searchResults}</ul>
+
       </div>
     );
   }
