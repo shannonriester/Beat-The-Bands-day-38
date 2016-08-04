@@ -7,7 +7,10 @@ import ResultImage from '../ResultImage';
 
 const ResultsPage = React.createClass({
   getInitialState: function () {
-    return {searchResults: store.searchCollection.toJSON()}
+    return {
+      searchResults: store.searchCollection.toJSON(),
+      showBandModal: false,
+    };
   },
   updateState: function () {
     this.setState({searchResults: store.searchCollection.toJSON()});
@@ -18,15 +21,25 @@ const ResultsPage = React.createClass({
   componentWillUnMount: function () {
     store.searchCollection.off('update', this.updateState);
   },
+  showBandModal: function () {
+    this.setState({showBandModal:true});
+  },
+  hideBandModal: function () {
+    this.setState({showBandModal:false});
+  },
   render: function () {
-    console.log(this.state.searchResults);
+
+    let bandModal;
     let searchResults;
-    // if (this.state.searchResults[0]){
-      searchResults = this.state.searchResults.map(function(band, i) {
-        return <ResultImage key={i} band={band}/>
-      });
-    // }
-    // $('.searchContainer').removeClass('landingPage');
+
+    searchResults = this.state.searchResults.map(function(band, i) {
+      if (this.state.showBandModal) {
+        bandModal = <BandModal showBandModal={this.showBandModal} hideBandModal={this.hideBandModal} />
+      }
+
+      return <ResultImage key={i} band={band}>{bandModal}</ResultImage>
+    });
+
     return (
       <div className="ResultsPage">
         {this.props.children}

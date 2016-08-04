@@ -14,9 +14,10 @@ const SearchCollection = Backbone.Collection.extend({
       url: `https://api.spotify.com/v1/search`,
       data: {q: searchQuery, type: 'artist'},
       success: (data) => {
+        this.reset();
         let bandData = data.artists.items.forEach((data, i, arr) => {
           if (data.images[0]) {
-            this.add({
+            this.fetch({
               id: data.id,
               type: data.artist,
               name: data.name,

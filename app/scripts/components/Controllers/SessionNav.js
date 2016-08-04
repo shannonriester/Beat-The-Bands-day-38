@@ -15,7 +15,10 @@ const SessionNav = React.createClass({
   },
   componentDidMount: function () {
     store.session.on('change', () => this.updateState);
-    store.session.getLocation();
+
+    store.session.getLocation().then((position) => {
+      console.log(position);
+    });
   },
   componentWillUnMount: function () {
     store.session.off('change', this.updateState);

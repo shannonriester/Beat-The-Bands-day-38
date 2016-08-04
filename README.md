@@ -11,8 +11,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - sass (.scss)
 - GeoLocation:
   - Only used when geolocation is successful
-  - User must agree to retrieving position in order to successfully get current position
-  - See SessionModel.js in app/scripts/Controllers
+    - User must agree to retrieving position in order to successfully get current position
+  - See `SessionModel.js` in app/scripts/Controllers
+    - For calling the function, see
 
 
 ## Installation

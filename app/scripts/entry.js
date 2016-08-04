@@ -14,7 +14,7 @@ const router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={LandingPage}/>
-      <Route path="/bands" component={ResultsPage}>
+      <Route path="/bands/search" component={ResultsPage}>
         <IndexRoute component={Header}/>
         {//
         // <Route path="/bands/search" comoponent={Results}/>

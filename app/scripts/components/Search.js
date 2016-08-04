@@ -1,21 +1,19 @@
 import React from 'react';
-import { Router, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 
 import store from '../store';
 
 const Search = React.createClass({
+
   searchFunction: function(e) {
     e.preventDefault();
-
     let searchQuery = this.refs.searchInput.value;
     if (searchQuery === '' || searchQuery === ' ') {
       //figure out how to shake the searchbar
       console.log('YOU NEED TO SEARCH SOMETHING!');
     } else {
       store.searchCollection.getResults(searchQuery);
-
-      //this is not helping prevent zombies the right way!
-      hashHistory.push('/bands');
+      hashHistory.push('/bands/search');
     }
   },
   render: function() {

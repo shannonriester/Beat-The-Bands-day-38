@@ -10,7 +10,8 @@
     padding: 5%;
     width: 40vw;
     border-radius: 15px;
-    font-size: 1.5em; }
+    font-size: 1.5em;
+    font-weight: 100; }
   .landingPage #search-bar {
     color: #FFF;
     border-top-right-radius: 0;
