@@ -1,3 +1,49 @@
+.landingPage {
+  display: inline-flex;
+  width: 100vw;
+  height: 60vh;
+  justify-content: center;
+  align-items: center; }
+  .landingPage .searchComponent {
+    display: inline-flex; }
+  .landingPage #search-bar, .landingPage #search-button {
+    padding: 5%;
+    width: 40vw;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none; }
+  .landingPage #search-bar {
+    color: #8D32D1; }
+  .landingPage #search-button {
+    background: transparent;
+    border: solid #FFF 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    color: #FFF; }
+    .landingPage #search-button:hover {
+      color: #D83B81;
+      background: #FFF;
+      transition: 1s; }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir, sans-serif;
+  line-height: 1.2em; }
+
+#App {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: -webkit-linear-gradient(right, #8D32D1 10%, #D83B81 90%); }
+
+input {
+  border: 0;
+  border-radius: 2%;
+  border: none;
+  padding: 1%;
+  font-size: 1.3em; }
 
 /*# sourceMappingURL=main.css.map */

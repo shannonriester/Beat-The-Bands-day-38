@@ -1,0 +1,30 @@
+@import '_variables.scss';
+@import 'LandingPage.scss';
+@import 'ResultsPage.scss';
+@import 'Header.scss';
+@import 'Modal.scss';
+@import 'Search.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Avenir, sans-serif;
+  line-height: 1.2em;
+}
+
+#App {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  // background: linear-gradient(right, #8D32D1, rgba(#D83B81, .6));
+  background-image: -webkit-linear-gradient(right, #8D32D1 10%, #D83B81 90%);
+}
+
+input {
+  border: 0;
+  border-radius: 2%;
+  border: none;
+  padding: 1%;
+  font-size: 1.3em;
+}

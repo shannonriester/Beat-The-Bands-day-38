@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 import store from '../../store';
 import Search from '../Search';
@@ -21,7 +22,7 @@ const ResultsPage = React.createClass({
         return <ResultImage key={i} band={band}/>
       });
     // }
-
+    // $('.searchContainer').removeClass('landingPage');
     return (
       <div className="ResultsPage">
         {this.props.children}

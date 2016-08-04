@@ -1,0 +1,35 @@
+.landingPage {
+  display: inline-flex;
+  width: 100vw;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+  .searchComponent {
+    display: inline-flex;
+  }
+  #search-bar, #search-button {
+    padding: 5%;
+    width: 40vw;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    // color: red;
+  }
+  #search-bar {
+    color: #8D32D1;
+  }
+  #search-button {
+    background: transparent;
+    border: solid #FFF 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+    // border-radius-left: none;
+    color: #FFF;
+    &:hover {
+      color: #D83B81;
+      background: #FFF;
+      transition: 1s;
+    }
+  }
+}

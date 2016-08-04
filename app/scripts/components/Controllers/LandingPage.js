@@ -1,11 +1,15 @@
 import React from 'react';
+import {Router, hashHistory} from 'react-router';
 
 import Search from '../Search';
 
 const LandingPage = React.createClass({
+
   render: function() {
     return (
-      <Search />
+      <div className="landingPage search-container">
+        <Search />
+      </div>
     );
   }
 });
