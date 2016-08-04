@@ -1,16 +1,33 @@
 import React from 'react';
 
+import store from '../../store';
 import Search from '../Search';
-import Results from '../Results';
+import ResultImage from '../ResultImage';
 
 const ResultsPage = React.createClass({
-  // console.log(this.props);
-  render: function() {
+  getInitialState: function () {
+    return {searchResults: store.searchCollection.toJSON()}
+  },
+  componentDidMount: function () {
+    store.searchCollection.on('update change', () => {
+      this.setState({searchResults: store.searchCollection.toJSON()});
+    });
+  },
+  render: function () {
+    console.log(this.state.searchResults);
+    let searchResults;
+    // if (this.state.searchResults[0]){
+      searchResults = this.state.searchResults.map(function(band, i) {
+        return <ResultImage key={i} band={band}/>
+      });
+    // }
+
     return (
       <div className="ResultsPage">
         {this.props.children}
         <Search />
-        <Results />
+        <h2>Your Search Results</h2>
+          <ul>{searchResults}</ul>
       </div>
     );
   }
