@@ -7,7 +7,7 @@ const BandModel = Backbone.Model.extend({
   defaults: {
     votesMade: 0,
     votedBands: [],
-    viewing: false
+    // viewing: false
   },
   // toggleBandModal: function (model) {
   //   console.log(model);

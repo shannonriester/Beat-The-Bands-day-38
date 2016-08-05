@@ -10,6 +10,7 @@ const SessionModel = Backbone.Model.extend({
     votes: '',
     isLoggingIn: false,
     isSigningUp: false,
+    viewingVoteModal: false,
   },
   getLocation: function() {
     var promise = new Promise(function(resolve, reject) {

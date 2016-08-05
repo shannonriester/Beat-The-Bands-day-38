@@ -17,33 +17,33 @@ const BandModal = React.createClass({
     store.voteModel.voteToggle(this.props.band);
   },
   render: function() {
-    let clickable;
+    let disabeled;
     if (localStorage.authtoken) {
-      clickable = true;
+      disabeled = false;
+      console.log('YOU ARE TRYING TO VOTE');
     } else {
-      clickable = false;
+      disabeled = true;
+      console.log('YOU CAN\'T VOTE WITHOUT LOGGING IN!');
+
       //figure out how to shake button and send message to user
     }
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};
     return (
-      <div className="modal-container" onClick={this.hideModal}>
         <div className="bandModal-content">
           <div className="modal-coverImg" style={styles}>
             <h2>{this.props.band.name}</h2>
             <section className="voting-section">
-              <input className="vote-btn" type="button" value="vote" disabled={clickable} onClick={this.voteFunction} />
+              <input className="vote-btn" type="button" value="vote" disabled={disabeled} onClick={this.voteFunction} />
               <data className="votes-data">0</data>
             </section>
           </div>
           <data className="pop-data">{this.props.band.popularity}</data>
           <p className="spotify-link">Check out <a href={this.props.band.spotify_url}>{this.props.band.name}</a> on Spotify</p>
           <input className="back-btn" type="button" value="back" onClick={this.hideModal} />
-
         </div>
-      </div>
-    )
+    );
   }
 });
 

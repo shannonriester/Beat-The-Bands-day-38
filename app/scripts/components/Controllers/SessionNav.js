@@ -16,9 +16,9 @@ const SessionNav = React.createClass({
   componentDidMount: function () {
     store.session.on('change', this.updateState);
 
-    store.session.getLocation().then((position) => {
-      console.log(position);
-    });
+    // store.session.getLocation().then((position) => {
+    //   console.log(position);
+    // });
   },
   componentWillUnMount: function () {
     store.session.off('change', this.updateState);
@@ -46,7 +46,6 @@ const SessionNav = React.createClass({
     }
 
     let sessionNav;
-    console.log(store.session.get('authtoken'));
     if (localStorage.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
