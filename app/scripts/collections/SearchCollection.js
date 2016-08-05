@@ -32,15 +32,11 @@ const SearchCollection = Backbone.Collection.extend({
     });
   },
   toggleBandModal: function (id) {
-    console.log(model);
-    // let model = store.collection.get(id);
-    if (model) {
-      //if the model is NOT being viewed, aka (HIDING the MODAL)
-      if (!this.get(model).get('viewing')) {
-        this.get(model).set('viewing', true);
+    if (id) {
+      if (!this.get(id).get('viewing')) {
+        this.get(id).set('viewing', true);
       } else {
-        this.get(model).set('viewing', false);
-        // this.stopPropagation();
+        this.get(id ).set('viewing', false);
       }
     } else {
       this.set('viewing', false);

@@ -5,11 +5,6 @@ import BandModal from './BandModal';
 
 const ResultImage = React.createClass({
   viewBand: function (e) {
-    //1. putting the below code into collection--worked up until hiding the modal...
-    //2. voting on the modal...
-
-    // let model = store.searchCollection.get(this.props.band.id);
-    // store.bandModel.toggleBandModal(model);
     store.searchCollection.get(this.props.band.id).set('viewing', true);
   },
   render: function () {
