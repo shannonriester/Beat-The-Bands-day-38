@@ -62,7 +62,7 @@ const SessionModel = Backbone.Model.extend({
         localStorage.authtoken = response._kmd.authtoken;
         // this.set('authtoken', response._kmd.authtoken);
         this.unset('password');
-        this.trigger('change');
+        // this.trigger('change');
       },
       error: function(model, response) {
         throw new Error('FAILED TO SIGN UP');
@@ -74,7 +74,6 @@ const SessionModel = Backbone.Model.extend({
     this.set('isSigningUp', false);
     localStorage.removeItem('authtoken');
     this.clear();
-    this.trigger('change');
     console.log('USER LOGGED OUT!');
 
   },
@@ -82,6 +81,7 @@ const SessionModel = Backbone.Model.extend({
     this.fetch({
       url: `https://baas.kinvey.com/user/kid_Bk73T0yt/_me`,
       success: () => {
+          // this.trigger('change');
           console.log('retrieved: ', this);
       },
       error: function(response) {

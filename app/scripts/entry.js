@@ -14,12 +14,10 @@ const router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={LandingPage}/>
-      <Route path="/bands/search" component={ResultsPage}>
+      <Route path="/bands/search/:search" component={ResultsPage}>
         <IndexRoute component={Header}/>
-        {//
-        // <Route path="/bands/search" comoponent={Results}/>
-        // <Route path="/bands/votes" comoponent={AllVotes}/>
-      }
+        {// <Route path="/bands/votes" comoponent={AllVotes}/>
+        }
       </Route>
     </Route>
   </Router>

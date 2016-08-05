@@ -4,7 +4,6 @@ import { Router, Route, hashHistory } from 'react-router';
 import store from '../store';
 
 const Search = React.createClass({
-
   searchFunction: function(e) {
     e.preventDefault();
     let searchQuery = this.refs.searchInput.value;
@@ -13,7 +12,7 @@ const Search = React.createClass({
       console.log('YOU NEED TO SEARCH SOMETHING!');
     } else {
       store.searchCollection.getResults(searchQuery);
-      hashHistory.push('/bands/search');
+      hashHistory.push(`/bands/search/${searchQuery}`);
     }
   },
   render: function() {

@@ -13,10 +13,10 @@ const ResultsPage = React.createClass({
     };
   },
   updateState: function () {
-    console.log('change detected');
     this.setState({searchResults: store.searchCollection.toJSON()});
   },
   componentDidMount: function () {
+    store.searchCollection.getResults(this.props.params.search);
     store.searchCollection.on('update change', this.updateState);
   },
   componentWillUnMount: function () {

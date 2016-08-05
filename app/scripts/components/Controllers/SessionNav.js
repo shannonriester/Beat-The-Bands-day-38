@@ -14,7 +14,7 @@ const SessionNav = React.createClass({
     this.setState({authtoken: store.session.get('authtoken')});
   },
   componentDidMount: function () {
-    store.session.on('change', () => this.updateState);
+    store.session.on('change', this.updateState);
 
     store.session.getLocation().then((position) => {
       console.log(position);
@@ -25,6 +25,8 @@ const SessionNav = React.createClass({
   },
   runLogout: function () {
     store.session.logout();
+    store.session.set('isLogginIn', false);
+    store.session.set('isSigningUp', false);
   },
   runLogin: function () {
     this.setState({hideModal:false});
@@ -44,13 +46,14 @@ const SessionNav = React.createClass({
     }
 
     let sessionNav;
-    if (store.session.get('authtoken')) {
+    console.log(store.session.get('authtoken'));
+    if (localStorage.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
           <input id="logoutBtn" type="button" value="logout" ref="logout" onClick={this.runLogout} />
         </div>
         );
-    } else if (!store.session.get('authtoken')) {
+    } else {
       sessionNav = (
         <div className="sessionNav-container">
           <input id="loginBtn" type="button" value="login" ref="login" onClick={this.runLogin}/>

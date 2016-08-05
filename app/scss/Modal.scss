@@ -24,16 +24,17 @@
     // display: flex;
     align-items: center;
     animation: slideIn 1s;
+    // animation:
     @keyframes slideIn {
-    from {
-      margin-top: -100%;
-      width: 300%;
+      from {
+        margin-top: -100%;
+        width: 300%;
+      }
+      to {
+        margin-top: 0%;
+        width: 100%;
+      }
     }
-    to {
-      margin-top: 0%;
-      width: 100%;
-    }
-  }
     .modal-coverImg {
       max-height: 60vh;
       min-height: 50vh;
