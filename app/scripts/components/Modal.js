@@ -1,8 +1,22 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../store';
 
 const Modal = React.createClass({
+  hideModal: function (e) {
+    if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
+      // store.searchCollection.get(this.props.band.id).set('viewing', false);
+      // e.stopPropagation();
+
+      store.session.set('isLoggingIn', false);
+      store.session.set('isSigningUp', false);
+      this.props.hideModal();
+
+      // let model = store.searchCollection.get(this.props.band.id);
+      // store.bandModel.toggleBandModal(model);
+    }
+  },
   loginFunction: function (e){
     e.preventDefault();
 
@@ -25,19 +39,16 @@ const Modal = React.createClass({
 
     this.props.hideModal();
   },
-  cancelFunction: function () {
-    if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('cancel') !== -1) {
+  cancelFunction: function (e) {
       store.session.set('isLoggingIn', false);
       store.session.set('isSigningUp', false);
       this.props.hideModal();
-    }
-
   },
   render: function () {
     let content;
     if (store.session.get('isLoggingIn')) {
       content = (
-        <form className="sessionModal-content" onSubmit={this.loginFunction}>
+        <form className="modal-content" onSubmit={this.loginFunction}>
           <h2>Login</h2>
           <input type="text" placeholder="username" ref="username" />
           <input type="password" placeholder="password" ref="password" />
@@ -58,7 +69,7 @@ const Modal = React.createClass({
       );
     }
     return (
-      <div className="modal-container">
+      <div className="modal-container" onClick={this.hideModal}>
           {content}
       </div>
     );
