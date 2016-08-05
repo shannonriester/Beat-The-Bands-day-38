@@ -7,6 +7,7 @@ const VoteModel = Backbone.Model.extend({
   allVoters: [],
   voteToggle: function(band) {
     let didVote = this.get('allVoters').filter(function(voter){
+      console.log('you are trying to VOTETOGGLE()');
       if (store.session.get('username') === voter) {
         return true;
       } else {

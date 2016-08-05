@@ -7,13 +7,16 @@ import store from '../store';
 const BandModal = React.createClass({
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
-      store.searchCollection.get(this.props.band.id).set('viewing', false);
-      e.stopPropagation();
+
+
+      // store.searchCollection.get(this.props.band.id).set('viewing', false);
       // let model = store.searchCollection.get(this.props.band.id);
-      // store.bandModel.toggleBandModal(model);
+      store.searchCollection.toggleBandModal(this.props.band.id);
+      e.stopPropagation();
     }
   },
   voteFunction: function () {
+    console.log('You are running the voteFunction on the BandModal');
     store.voteModel.voteToggle(this.props.band);
   },
   render: function() {

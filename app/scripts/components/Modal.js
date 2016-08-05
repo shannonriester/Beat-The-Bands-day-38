@@ -50,21 +50,21 @@ const Modal = React.createClass({
       content = (
         <form className="modal-content" onSubmit={this.loginFunction}>
           <h2>Login</h2>
-          <input type="text" placeholder="username" ref="username" />
-          <input type="password" placeholder="password" ref="password" />
-          <input type="submit" value="submit" ref="submit" onClick={this.loginFunction}/>
-          <input type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
+          <input className="userInfo" type="text" placeholder="username" ref="username" />
+          <input className="userInfo" type="password" placeholder="password" ref="password" />
+          <input className="userInfoBtn" type="submit" value="submit" ref="submit" onClick={this.loginFunction}/>
+          <input className="userInfoBtn" type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
         </form>
       );
     } else if (store.session.get('isSigningUp')) {
       content = (
         <form className="modal-content" onSubmit={this.signupFunction}>
           <h2>Sign Up with Beats!</h2>
-          <input type="text" placeholder="username" ref="username" />
-          <input type="text" placeholder="email" ref="email" />
-          <input type="password" placeholder="password" ref="password" />
-          <input type="submit" value="submit" ref="submit" onClick={this.signupFunction} />
-          <input type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
+          <input className="userInfo" type="text" placeholder="username" ref="username" />
+          <input className="userInfo" type="text" placeholder="email" ref="email" />
+          <input className="userInfo" type="password" placeholder="password" ref="password" />
+          <input className="userInfoBtn" type="submit" value="submit" ref="submit" onClick={this.signupFunction} />
+          <input className="userInfoBtn" type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
         </form>
       );
     }

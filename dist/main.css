@@ -43,6 +43,35 @@
 
 #header {
   background: rgba(0, 0, 0, 0.6); }
+  #header #search-bar, #header #search-button {
+    padding: 5%;
+    width: 40vw;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: 100; }
+  #header #search-bar {
+    color: #FFF;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    outline: none; }
+  #header #search-bar::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: rgba(255, 255, 255, 0.6); }
+  #header #search-bar::-moz-placeholder, #header :-moz-placeholder {
+    /* Firefox 19+/Firefox 18- */
+    color: rgba(255, 255, 255, 0.6); }
+  #header #search-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    font-weight: 300;
+    border: solid #FFF 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+    #header #search-button:hover {
+      color: #D83B81;
+      background: #FFF;
+      transition: 1s; }
 
 .modal-container {
   position: fixed;
@@ -54,10 +83,42 @@
   display: inline-flex;
   justify-content: center;
   align-items: center; }
-  .modal-container .sessionModal-content {
-    height: 25vh;
-    width: 25vw;
-    background: #FFF; }
+  .modal-container .modal-content {
+    background: rgba(255, 255, 255, 0.2);
+    max-height: 40vw;
+    min-height: 35vh;
+    max-width: 35vw;
+    min-width: 20vw;
+    border-radius: 10px;
+    text-align: center; }
+    .modal-container .modal-content h2 {
+      font-weight: 200;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF; }
+    .modal-container .modal-content .userInfo {
+      width: 90%;
+      border: none;
+      border-bottom: 1px solid #FFF;
+      outline: none;
+      margin: 0 auto; }
+      .modal-container .modal-content .userInfo::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: rgba(255, 255, 255, 0.5); }
+      .modal-container .modal-content .userInfo::-moz-placeholder, .modal-container .modal-content .userInfo :-moz-placeholder {
+        /* Firefox 19+/Firefox 18- */
+        color: rgba(255, 255, 255, 0.5); }
+    .modal-container .modal-content .userInfoBtn {
+      border-radius: 5px;
+      display: block;
+      margin: 10% auto;
+      width: 75%; }
+      .modal-container .modal-content .userInfoBtn:hover {
+        color: #D83B81;
+        background: #FFF;
+        transition: .5s; }
   .modal-container .bandModal-content {
     max-height: 70vh;
     min-height: 75vh;
