@@ -6,7 +6,22 @@ const VoteModel = Backbone.Model.extend({
   allVotes: 0,
   allVoters: [],
   voteToggle: function(band) {
-    console.log(band);
+    let didVote = this.get('allVoters').filter(function(voter){
+      if (store.session.get('username') === voter) {
+        return true;
+      } else {
+        // let votersArr = this.get('allVoters');
+        console.log(this.get('allVoters').push(store.session.get('username')));
+        console.log(this.get('allVoters'));
+        return false;
+      }
+    });
+
+    // console.log(didVote);
+
+    // console.log(this.get('allVoters'));
+
+    // band.save();
   },
 
 });
