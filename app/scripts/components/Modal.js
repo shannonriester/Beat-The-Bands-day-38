@@ -26,9 +26,12 @@ const Modal = React.createClass({
     this.props.hideModal();
   },
   cancelFunction: function () {
-    store.session.set('isLoggingIn', false);
-    store.session.set('isSigningUp', false);
-    this.props.hideModal();
+    if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('cancel') !== -1) {
+      store.session.set('isLoggingIn', false);
+      store.session.set('isSigningUp', false);
+      this.props.hideModal();
+    }
+
   },
   render: function () {
     let content;
