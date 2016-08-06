@@ -18,6 +18,7 @@ const SearchCollection = Backbone.Collection.extend({
         let bandData = data.artists.items.forEach((data, i, arr) => {
           if (data.images[0]) {
             this.add({
+              spotifyId: data.id,
               id: data.id,
               type: data.artist,
               name: data.name,
@@ -36,7 +37,7 @@ const SearchCollection = Backbone.Collection.extend({
       if (!this.get(id).get('viewing')) {
         this.get(id).set('viewing', true);
       } else {
-        this.get(id ).set('viewing', false);
+        this.get(id).set('viewing', false);
       }
     } else {
       this.set('viewing', false);

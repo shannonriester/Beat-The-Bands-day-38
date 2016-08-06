@@ -36,10 +36,6 @@ const router = (
 // );
 
 
-
-ReactDOM.render(router, document.getElementById('container'));
-
-
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   if (jqueryAjax.url.indexOf('spotify') === -1) {
     if (localStorage.authtoken) {
@@ -52,3 +48,6 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
 if (localStorage.authtoken) {
   store.session.retrieve();
 }
+
+
+ReactDOM.render(router, document.getElementById('container'));

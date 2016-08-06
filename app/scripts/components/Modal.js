@@ -12,7 +12,6 @@ const Modal = React.createClass({
       store.session.set('isLoggingIn', false);
       store.session.set('isSigningUp', false);
       this.props.hideModal();
-
       // let model = store.searchCollection.get(this.props.band.id);
       // store.bandModel.toggleBandModal(model);
     }

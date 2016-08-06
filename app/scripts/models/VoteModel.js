@@ -8,7 +8,6 @@ const VoteModel = Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/appdata/kid_Bk73T0yt/VotedCollection`,
   defaults: {
     spotifyId: '',
-    band: '',
     name: '',
     voteRank: 0,
     allVoters: [],

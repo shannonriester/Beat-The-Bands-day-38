@@ -6,10 +6,9 @@ const BandModel = Backbone.Model.extend({
   idAttribute: '',
   defaults: {
     voteRank: 0,
-    allVoters: [],
-    viewing: false
+    viewing: false,
+    // spotifyId: ''
   },
-
 });
 
 export default BandModel;

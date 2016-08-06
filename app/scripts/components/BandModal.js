@@ -22,11 +22,13 @@ const BandModal = React.createClass({
   },
   render: function() {
     let rank;
-    // if(store.votedCollection.get(this.props.band.id).get('voteRank')) {
-    //   rank = store.votedCollection.get(this.props.band.id).get('voteRank');
-    // } else {
-      rank = store.searchCollection.get(this.props.band.id).get('voteRank');
-    // }
+    console.log();
+    const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
+    if(kinveyId) {
+      rank = store.votedCollection.get(kinveyId).get('voteRank');
+    } else {
+      rank = 0;
+    }
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};
