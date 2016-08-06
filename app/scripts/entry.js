@@ -4,21 +4,21 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import $ from 'jquery';
 
 import store from './store';
-import LandingPage from './components/Controllers/LandingPage';
-import ResultsPage from './components/Controllers/ResultsPage';
 import App from './components/App';
 import Header from './components/Header';
-
+import LandingPage from './components/Controllers/LandingPage';
+import ResultsPage from './components/Controllers/ResultsPage';
+import VotesPage from './components/Controllers/VotesPage';
 
 const router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={LandingPage}/>
-      <Route path="/bands/search/:search" component={ResultsPage}>
-        <IndexRoute component={Header}/>
-        {// <Route path="/bands/votes" comoponent={AllVotes}/>
-        }
-      </Route>
+      <Route path="/bands/search/:search" component={ResultsPage} />
+      <Route path="allvotes" component={VotesPage}/>
+      {//<Route path="/home" comoponent={SessionProfile}/>
+      //<Route path="/user/:id" comoponent={UserPage, UserVotesPage}/>
+      }
     </Route>
   </Router>
 );
