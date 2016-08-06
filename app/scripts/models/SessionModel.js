@@ -7,7 +7,7 @@ const SessionModel = Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/user/kid_Bk73T0yt/login`,
   defaults: {
     username: '',
-    votes: '',
+    votedBands: [],
     isLoggingIn: false,
     isSigningUp: false,
   },
@@ -37,6 +37,7 @@ const SessionModel = Backbone.Model.extend({
     this.save(
       { username: username, password: password},
       { success: (model, response) => {
+          // console.log(model);
           console.log('USER SIGNED IN', username);
 
           localStorage.authtoken = response._kmd.authtoken;
@@ -58,11 +59,9 @@ const SessionModel = Backbone.Model.extend({
       url: `https://baas.kinvey.com/user/kid_Bk73T0yt/`,
       success: (model, response) => {
         console.log('USER SIGNED UP!', username);
-
         localStorage.authtoken = response._kmd.authtoken;
         // this.set('authtoken', response._kmd.authtoken);
         this.unset('password');
-        // this.trigger('change');
       },
       error: function(model, response) {
         throw new Error('FAILED TO SIGN UP');
@@ -81,8 +80,7 @@ const SessionModel = Backbone.Model.extend({
     this.fetch({
       url: `https://baas.kinvey.com/user/kid_Bk73T0yt/_me`,
       success: () => {
-          // this.trigger('change');
-          console.log('retrieved: ', this);
+          console.log('User Retrieved: ', this);
       },
       error: function(response) {
         throw new Error('COULD NOT FETCH USER!')

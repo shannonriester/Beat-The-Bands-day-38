@@ -8,8 +8,7 @@ import VoteModel from './models/VoteModel';
 export default({
     session: new SessionModel(),
     searchCollection: new SearchCollection(),
-    bandModel: new BandModel(),
-    voteModel: new VoteModel(),
+    votedCollection: new VotedCollection(),
     settings: {
       appKey: 'kid_Bk73T0yt',
       appSecret: '459bd8dee40445efaff271ecd91675c2',

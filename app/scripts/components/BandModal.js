@@ -13,17 +13,20 @@ const BandModal = React.createClass({
     }
   },
   voteFunction: function () {
-    console.log('You are running the voteFunction on the BandModal');
-    store.voteModel.voteToggle(this.props.band);
+    if (!localStorage.authtoken) {
+      //figure out how to shake button and send message to user
+      console.log('YOU NEED TO LOG IN TO VOTE!');
+    } else {
+      store.votedCollection.voteToggle(this.props.band.id);
+    }
   },
   render: function() {
-    let clickable;
-    if (localStorage.authtoken) {
-      clickable = true;
-    } else {
-      clickable = false;
-      //figure out how to shake button and send message to user
-    }
+    let rank;
+    // if(store.votedCollection.get(this.props.band.id).get('voteRank')) {
+    //   rank = store.votedCollection.get(this.props.band.id).get('voteRank');
+    // } else {
+      rank = store.searchCollection.get(this.props.band.id).get('voteRank');
+    // }
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};
@@ -33,8 +36,8 @@ const BandModal = React.createClass({
           <div className="modal-coverImg" style={styles}>
             <h2>{this.props.band.name}</h2>
             <section className="voting-section">
-              <input className="vote-btn" type="button" value="vote" disabled={clickable} onClick={this.voteFunction} />
-              <data className="votes-data">0</data>
+              <input className="vote-btn" type="button" value="vote" onClick={this.voteFunction} />
+              <data className="votes-data">Votes: {rank}</data>
             </section>
           </div>
           <data className="pop-data">{this.props.band.popularity}</data>

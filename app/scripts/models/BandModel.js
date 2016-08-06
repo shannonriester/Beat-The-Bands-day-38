@@ -5,11 +5,11 @@ import store from '../store';
 const BandModel = Backbone.Model.extend({
   idAttribute: '',
   defaults: {
-    votesMade: 0,
-    votedBands: [],
+    voteRank: 0,
+    allVoters: [],
     viewing: false
   },
-  
+
 });
 
 export default BandModel;
