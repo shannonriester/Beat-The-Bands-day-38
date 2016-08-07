@@ -40,7 +40,6 @@ const ResultsPage = React.createClass({
         <Header />
         {this.props.children}
         <Search />
-        <h2>Your Search Results</h2>
           <ul>{searchResults}</ul>
       </div>
     );
