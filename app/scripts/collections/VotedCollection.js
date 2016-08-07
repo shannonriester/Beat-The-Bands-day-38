@@ -9,11 +9,13 @@ const VotedCollection = Backbone.Collection.extend({
   model: VoteModel,
   url: `https://baas.kinvey.com/appdata/kid_Bk73T0yt/VotedCollection`,
   getKinveyId: function(spotifyId) {
-    let kinveyId = this.models.reduce((returnSoFar, bandModel, i, arr) => {
-      if (bandModel.attributes.spotifyId === spotifyId) {
-        return bandModel.attributes._id;
+    let kinveyId;
+    this.models.forEach((bandModel, i, arr) => {
+      if (bandModel.get('spotifyId') === spotifyId) {
+        kinveyId = bandModel.get('_id');
       }
-    }, '');
+    });
+    console.log(kinveyId);
     return kinveyId;
   },
   unVoteFunction: function(votingBand){
@@ -49,11 +51,6 @@ const VotedCollection = Backbone.Collection.extend({
 
     votingBand.save(null, {
       success: (model, response) => {
-        console.log(model);
-        // spotify_id: spotifyId,
-        // name: votingBand.name,
-        // allVotes: newVoteRank,
-        // allVoters: newAllVoters
         console.log('YOU VOTED');
       },
       error: function(model, response) {
@@ -87,14 +84,17 @@ const VotedCollection = Backbone.Collection.extend({
    });
  },
   voteToggle: function(spotifyId) {
+    console.log(this);
     let votedBand = this.models.reduce((returnSoFar, bandModel, i, arr) => {
-      if (bandModel.attributes.spotifyId === spotifyId) {
+      if (bandModel.get('spotifyId') === spotifyId) {
+        console.log('bandModel ', bandModel);
         return bandModel;
       }
     }, false);
 
 //FIRST IF-ELSE: IF there is a band in the VotedCollection...
     if (votedBand) {
+      console.log('SOMEONE voted on this');
         //if 'shannon' is in there...
       if (votedBand.get('allVoters').indexOf(store.session.get('username')) !== -1) {
         // console.log(votedBand.get('allVoters').indexOf(store.session.get('username'));
@@ -105,7 +105,7 @@ const VotedCollection = Backbone.Collection.extend({
         this.addVoteFunction(votedBand);
       }
     } else {
-      this.createVoteModel(spotifyId)
+      // this.createVoteModel(spotifyId)
     }
   },
 });

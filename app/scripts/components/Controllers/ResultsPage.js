@@ -25,7 +25,7 @@ const ResultsPage = React.createClass({
     store.votedCollection.fetch();
     store.votedCollection.on('update change', this.updateState);
   },
-  componentWillUnMount: function () {
+  componentWillUnmount: function () {
     store.searchCollection.off('update change', this.updateState);
     store.votedCollection.off('update change', this.updateState);
   },

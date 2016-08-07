@@ -21,14 +21,18 @@ const BandModal = React.createClass({
     }
   },
   render: function() {
+    console.log(store.votedCollection.models);
+    console.log(this.props.band.id);
     let rank;
     console.log();
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
+    console.log(kinveyId);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
-    } else {
-      rank = 0;
     }
+    // } else {
+    //   rank = 0;
+    // }
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};

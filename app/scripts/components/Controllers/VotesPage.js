@@ -16,10 +16,11 @@ const VotesPage = React.createClass({
   },
   componentDidMount: function () {
     store.votedCollection.fetch();
-    store.votedCollection.on('update change', this.updateState);
+    store.votedCollection.on('update', this.updateState);
+    store.votedCollection.on('change', this.updateState);
   },
-  componentWillUnMount: function () {
-    store.votedCollection.off('update change', this.updateState);
+  componentWillUnmount: function () {
+    store.searchedCollection.off('update change', this.updateState);
   },
   render: function () {
     let votedBands;

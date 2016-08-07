@@ -5,7 +5,7 @@ import SessionNav from './Controllers/SessionNav';
 
 const Nav = React.createClass({
   navigateResults: function() {
-    hashHistory.push(`/bands/search/${searchQuery}`);
+    // hashHistory.push(`/bands/search/{searchQuery}`);
   },
   navigateVotesPage: function() {
     hashHistory.push(`/allvotes`);
