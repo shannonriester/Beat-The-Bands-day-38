@@ -7,7 +7,7 @@ const SessionNav = React.createClass({
   getInitialState: function () {
     return {
       hideModal: true,
-      authtoken: store.session.get('authtoken')
+      authtoken: store.session.get('authtoken'),
     }
   },
   updateState: function () {

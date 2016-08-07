@@ -6,14 +6,10 @@ import store from '../store';
 const Modal = React.createClass({
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
-      // store.searchCollection.get(this.props.band.id).set('viewing', false);
-      // e.stopPropagation();
 
       store.session.set('isLoggingIn', false);
       store.session.set('isSigningUp', false);
       this.props.hideModal();
-      // let model = store.searchCollection.get(this.props.band.id);
-      // store.bandModel.toggleBandModal(model);
     }
   },
   loginFunction: function (e){

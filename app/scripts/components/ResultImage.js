@@ -20,9 +20,7 @@ const ResultImage = React.createClass({
       <li className="li-band" onClick={this.viewBand} style={styles}>
         <section className="data-section">
           <h3 className="band-name">{this.props.band.name}</h3>
-          <data className="popularity">{this.props.band.popularity}</data>
-          <data className="followers">{this.props.band.followers}</data>
-          <a href={this.props.band.spotify_url} className="spotifyUrl"><i class="fa fa-spotify" aria-hidden="true"></i></a>
+          <a href={this.props.band.spotify_url} className="spotifyUrl"><i className="fa fa-spotify" aria-hidden="true"></i></a>
         </section>
         {bandModal}
       </li>

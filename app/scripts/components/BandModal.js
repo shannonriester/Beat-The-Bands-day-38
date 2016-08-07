@@ -15,6 +15,10 @@ const BandModal = React.createClass({
   voteFunction: function () {
     if (!localStorage.authtoken) {
       //figure out how to shake button and send message to user
+      // document.getElementById()
+      // document.querySelector()
+      // document.querySelectorAll()
+      // document.getElementByClassName()
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
       store.votedCollection.voteToggle(this.props.band.id);

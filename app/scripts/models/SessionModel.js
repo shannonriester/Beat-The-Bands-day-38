@@ -10,6 +10,7 @@ const SessionModel = Backbone.Model.extend({
     votedBands: [],
     isLoggingIn: false,
     isSigningUp: false,
+    shakeModal: false,
   },
   getLocation: function() {
     var promise = new Promise(function(resolve, reject) {
@@ -37,11 +38,9 @@ const SessionModel = Backbone.Model.extend({
     this.save(
       { username: username, password: password},
       { success: (model, response) => {
-          // console.log(model);
           console.log('USER SIGNED IN', username);
 
           localStorage.authtoken = response._kmd.authtoken;
-          // this.set('authtoken', response._kmd.authtoken);
           this.unset('password');
           this.trigger('change');
       },

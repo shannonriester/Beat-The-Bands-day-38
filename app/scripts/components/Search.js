@@ -4,10 +4,17 @@ import { Router, Route, hashHistory } from 'react-router';
 import store from '../store';
 
 const Search = React.createClass({
+  getInitialState: function() {
+    return {shakeModal: false,}
+  },
   searchFunction: function(e) {
     e.preventDefault();
     let searchQuery = this.refs.searchInput.value;
     if (searchQuery === '' || searchQuery === ' ') {
+      this.setState({shakeModal: true});
+      window.setTimeout(()=>{
+        this.setState({shakeModal: false});
+      }, 500);
       //figure out how to shake the searchbar
       console.log('YOU NEED TO SEARCH SOMETHING!');
     } else {
@@ -16,10 +23,14 @@ const Search = React.createClass({
     }
   },
   render: function() {
+    let animations = '';
+    if (this.state.shakeModal) {
+      animations = 'shake';
+    }
     return (
-      <form className="searchComponent" onSubmit={this.searchFunction}>
-        <input id="search-bar" type="text" placeholder="search an artist..." ref="searchInput" />
-        <input id="search-button" type="submit" value="search" onClick={this.searchFunction} />
+      <form id={animations} className="searchComponent" onSubmit={this.searchFunction}>
+        <input className="search-bar" type="text" placeholder="search an artist..." ref="searchInput" />
+        <input className="search-button" type="submit" value="search" onClick={this.searchFunction} />
       </form>
     );
   }

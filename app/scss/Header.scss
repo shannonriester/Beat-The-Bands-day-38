@@ -1,26 +1,26 @@
 .header {
   background: rgba(0, 0, 0, .6);
-  #search-bar, #search-button {
+  .search-bar, .search-button {
     padding: 5%;
     width: 40vw;
     border-radius: 15px;
     font-size: 1.5em;
     font-weight: 100;
   }
-  #search-bar {
+  .search-bar {
     color: #FFF;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
     outline: none;
   }
-  #search-bar::-webkit-input-placeholder,  { /* Chrome/Opera/Safari */
+  .search-bar::-webkit-input-placeholder,  { /* Chrome/Opera/Safari */
     color: rgba(#FFF, .6);
   }
-  #search-bar::-moz-placeholder, :-moz-placeholder { /* Firefox 19+/Firefox 18- */
+  .search-bar::-moz-placeholder, :-moz-placeholder { /* Firefox 19+/Firefox 18- */
     color: rgba(#FFF, .6);
   }
-  #search-button {
+  .search-button {
     background: rgba(#FFF, .2);
     color: #FFF;
     font-weight: 300;
