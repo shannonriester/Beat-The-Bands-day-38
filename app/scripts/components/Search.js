@@ -10,16 +10,16 @@ const Search = React.createClass({
   searchFunction: function(e) {
     e.preventDefault();
     let searchQuery = this.refs.searchInput.value;
-    if (searchQuery === '' || searchQuery === ' ') {
+    if (searchQuery === '' || searchQuery === ' '|| searchQuery === '  ') {
       this.setState({shakeModal: true});
       window.setTimeout(()=>{
         this.setState({shakeModal: false});
       }, 500);
-      //figure out how to shake the searchbar
       console.log('YOU NEED TO SEARCH SOMETHING!');
     } else {
       store.searchCollection.getResults(searchQuery);
       hashHistory.push(`/bands/search/${searchQuery}`);
+      sessionStorage.searchTerm = searchQuery;
     }
   },
   render: function() {
@@ -28,8 +28,8 @@ const Search = React.createClass({
       animations = 'shake';
     }
     return (
-      <form id={animations} className="searchComponent" onSubmit={this.searchFunction}>
-        <input className="search-bar" type="text" placeholder="search an artist..." ref="searchInput" />
+      <form id={animations} className="searchComponent" onSubmit={this.searchFunction} >
+        <input className="search-bar" type="text" placeholder="search an artist..." ref="searchInput"  />
         <input className="search-button" type="submit" value="search" onClick={this.searchFunction} />
       </form>
     );

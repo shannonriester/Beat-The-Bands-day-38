@@ -5,7 +5,8 @@ import SessionNav from './Controllers/SessionNav';
 
 const Nav = React.createClass({
   navigateResults: function() {
-    // hashHistory.push(`/bands/search/{searchQuery}`);
+    console.log(this.props.userSearch);
+    hashHistory.push(`/bands/search/${sessionStorage.searchTerm}`);
   },
   navigateVotesPage: function() {
     hashHistory.push(`/allvotes`);
@@ -13,8 +14,8 @@ const Nav = React.createClass({
   render: function() {
     return (
       <nav className="nav">
-        <input className="homeBtn navBtn" type="button" value="home" ref="homeBtn" onClick={this.navigateResults} />
-        <input className="votesBnt navBtn" type="button" value="votes" ref="votesBtn" onClick={this.navigateVotesPage}/>
+        <input className="homeBtn navBtn" type="button" value="search" onClick={this.navigateResults} />
+        <input className="votesBnt navBtn" type="button" value="votes" onClick={this.navigateVotesPage}/>
         <SessionNav />
         {//<UserSearBar />
         }

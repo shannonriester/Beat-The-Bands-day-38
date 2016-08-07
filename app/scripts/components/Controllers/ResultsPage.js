@@ -34,10 +34,10 @@ const ResultsPage = React.createClass({
     searchResults = this.state.searchResults.map((band, i) => {
       return (<ResultImage key={band.id} band={band} />);
     });
-
+    let userSearch = this.props.routeParams.search;
     return (
       <div className="resultsPage page-container">
-        <Header />
+        <Header userSearch={userSearch} />
         {this.props.children}
         <Search />
           <ul>{searchResults}</ul>
