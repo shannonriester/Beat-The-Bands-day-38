@@ -10,8 +10,7 @@
   align-items: center;
   .modal-content {
     background: rgba(#FFF, .4);
-    max-height: 40vw;
-    min-height: 35vh;
+    height: 48vh;
     max-width: 35vw;
     min-width: 20vw;
     border-radius: 10px;
@@ -65,7 +64,7 @@
       margin: 0 auto;
       width: 75%;
       padding: 5%;
-      margin-bottom: 5%;
+      // margin-bottom: 5%;
       border-radius: 5px;
       font-size: 1.3em;
       &:hover{

@@ -10,7 +10,6 @@ const BandModal = React.createClass({
       if (this.props.band.id) {
         store.searchCollection.toggleBandModal(this.props.band.id);
       } else {
-        console.log(this.props.band.spotifyId);
         store.votedCollection.toggleBandModal(this.props.band._id);
       }
       e.stopPropagation();
@@ -18,6 +17,7 @@ const BandModal = React.createClass({
   },
   voteFunction: function () {
     if (!localStorage.authtoken) {
+
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
       store.votedCollection.voteToggle(this.props.band.id);
@@ -30,7 +30,6 @@ const BandModal = React.createClass({
       rank = store.votedCollection.get(kinveyId).get('voteRank');
     } else if (this.props.band._id){
       rank = this.props.band.voteRank;
-      //will have to fix that this doesn't respond the correct way when looking at the modal on the Votes page...
     }
 
     let imageUrl = this.props.band.imageUrl;

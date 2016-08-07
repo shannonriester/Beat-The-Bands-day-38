@@ -41,5 +41,30 @@
       margin: 0 10%;
       color: #C1C3C6;
     }
+    p {
+      margin: 2% 0 0 0;
+      font-size: 1em;
+      font-weight: 100;
+      color: #9BF0E1;
+      align-self: center;
+      border-left: solid 1px;
+      padding-left: 5%;
+    }
   }
+
+  @media (max-width: 970px) {
+    .sessionNav-container {
+      p {
+        // margin: 2% 0 0 0;
+        // font-size: 1em;
+        // font-weight: 100;
+        // color: #9BF0E1;
+        // align-self: center;
+        // border-left: solid 1px;
+        padding-left: 4%;
+        width: 8em;
+      }
+    }
+  }
+
 }

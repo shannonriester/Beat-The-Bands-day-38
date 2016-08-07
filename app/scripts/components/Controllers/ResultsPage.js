@@ -12,6 +12,7 @@ const ResultsPage = React.createClass({
     return {
       searchResults: store.searchCollection.toJSON(),
       votedCollection: store.votedCollection.toJSON(),
+      alreadyVoted: false,
     };
   },
   updateState: function () {

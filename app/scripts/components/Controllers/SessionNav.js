@@ -48,6 +48,7 @@ const SessionNav = React.createClass({
     if (localStorage.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
+          <p className="welcomeUser">Hi, {store.session.get('username')}!</p>
           <input className="sessionBtns" id="logoutBtn" type="button" value="logout" ref="logout" onClick={this.runLogout} />
         </div>
         );

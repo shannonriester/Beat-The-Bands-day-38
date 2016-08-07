@@ -12,10 +12,16 @@ const ResultImage = React.createClass({
     if (this.props.band.viewing) {
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
-      let imageUrl = this.props.band.imageUrl;
-      let styles = {
-      backgroundImage: 'url(' + imageUrl + ')',
-      }
+
+    let voteButton;
+    if (store.votedCollection.get('allVoters')) {
+      
+    }
+
+    let imageUrl = this.props.band.imageUrl;
+    let styles = {
+    backgroundImage: 'url(' + imageUrl + ')',
+    }
     return (
       <li className="li-band" onClick={this.viewBand} style={styles}>
         <section className="data-section">
