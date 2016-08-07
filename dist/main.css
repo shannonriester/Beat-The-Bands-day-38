@@ -28,7 +28,7 @@
     background: rgba(255, 255, 255, 0.2);
     color: #FFF;
     font-weight: 300;
-    border: solid #FFF 2px;
+    border: solid #FFF 3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
     .landingPage #search-button:hover {
@@ -36,42 +36,95 @@
       background: #FFF;
       transition: 1s; }
 
-.coverImg {
-  height: 20vh;
-  background-size: contain;
-  background-repeat: no-repeat; }
+.page-container ul {
+  padding: 0;
+  margin: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: flex-end;
+  align-content: flex-end; }
+.page-container .li-band {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 30vh;
+  width: 30vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  list-style-type: none; }
+  .page-container .li-band:hover {
+    transition: 1s;
+    background: darken; }
+  .page-container .li-band .data-section {
+    background: rgba(51, 15, 80, 0.8);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    align-self: flex-end;
+    justify-content: center; }
+    .page-container .li-band .data-section:hover {
+      transition: 1s;
+      background: rgba(51, 15, 80, 0.6); }
+    .page-container .li-band .data-section h3 {
+      font-size: 2.5vh;
+      font-weight: 200;
+      margin: 0;
+      color: #FFF; }
+    .page-container .li-band .data-section .popularity {
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: flex-start;
+      width: 40%; }
 
-#header {
+.header {
   background: rgba(0, 0, 0, 0.6); }
-  #header #search-bar, #header #search-button {
+  .header #search-bar, .header #search-button {
     padding: 5%;
     width: 40vw;
     border-radius: 15px;
     font-size: 1.5em;
     font-weight: 100; }
-  #header #search-bar {
+  .header #search-bar {
     color: #FFF;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
     outline: none; }
-  #header #search-bar::-webkit-input-placeholder {
+  .header #search-bar::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: rgba(255, 255, 255, 0.6); }
-  #header #search-bar::-moz-placeholder, #header :-moz-placeholder {
+  .header #search-bar::-moz-placeholder, .header :-moz-placeholder {
     /* Firefox 19+/Firefox 18- */
     color: rgba(255, 255, 255, 0.6); }
-  #header #search-button {
+  .header #search-button {
     background: rgba(255, 255, 255, 0.2);
     color: #FFF;
     font-weight: 300;
     border: solid #FFF 2px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
-    #header #search-button:hover {
+    .header #search-button:hover {
       color: #D83B81;
       background: #FFF;
       transition: 1s; }
+  .header .nav {
+    display: flex; }
+    .header .nav .navBtn {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row; }
+    .header .nav .sessionBtns {
+      padding: 10%; }
 
 .modal-container {
   position: fixed;
@@ -159,6 +212,40 @@
       0% {transform: translateY(50px)}
       100% {transform: translateY(50px)} */ }
 
+.votesPage-container .searchComponent {
+  margin-top: 5%;
+  text-align: center; }
+.votesPage-container #search-bar, .votesPage-container #search-button {
+  padding: 1%;
+  border-radius: 15px;
+  font-size: 1.5em;
+  font-weight: 100; }
+.votesPage-container #search-bar {
+  width: 64vw;
+  color: #FFF;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  outline: none; }
+.votesPage-container #search-bar::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.6); }
+.votesPage-container #search-bar::-moz-placeholder, .votesPage-container :-moz-placeholder {
+  /* Firefox 19+/Firefox 18- */
+  color: rgba(255, 255, 255, 0.6); }
+.votesPage-container #search-button {
+  background: rgba(255, 255, 255, 0.2);
+  width: 24vw;
+  color: #FFF;
+  font-weight: 300;
+  border: solid #FFF 2px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+  .votesPage-container #search-button:hover {
+    color: #D83B81;
+    background: #FFF;
+    transition: 1s; }
+
 body {
   margin: 0;
   padding: 0;
@@ -181,7 +268,7 @@ body {
 input {
   border: 0;
   border-radius: 5%;
-  border: solid 1px #FFF;
+  border: solid 2px #FFF;
   padding: 1%;
   font-size: 1.3em;
   background: none;

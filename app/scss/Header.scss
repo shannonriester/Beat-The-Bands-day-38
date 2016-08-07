@@ -1,4 +1,4 @@
-#header {
+.header {
   background: rgba(0, 0, 0, .6);
   #search-bar, #search-button {
     padding: 5%;
@@ -33,5 +33,15 @@
       transition: 1s;
     }
   }
-  
+  .nav {
+    display: flex;
+    .navBtn {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+    .sessionBtns {
+      padding: 10%
+    }
+  }
 }

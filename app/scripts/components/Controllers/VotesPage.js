@@ -34,7 +34,7 @@ const VotesPage = React.createClass({
       return (<VoteImage key={i} band={votedBand} />);
     });
     return (
-      <div className="votesPage-container">
+      <div className="votesPage page-container">
         <Header />
         {this.props.children}
         <Search />

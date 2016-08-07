@@ -36,7 +36,7 @@ const ResultsPage = React.createClass({
     });
 
     return (
-      <div className="resultsPage">
+      <div className="resultsPage page-container">
         <Header />
         {this.props.children}
         <Search />

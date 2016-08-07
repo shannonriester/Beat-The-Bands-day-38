@@ -48,14 +48,14 @@ const SessionNav = React.createClass({
     if (localStorage.authtoken) {
       sessionNav = (
         <div className="sessionNav-container">
-          <input id="logoutBtn" type="button" value="logout" ref="logout" onClick={this.runLogout} />
+          <input className="sessionBtns" id="logoutBtn" type="button" value="logout" ref="logout" onClick={this.runLogout} />
         </div>
         );
     } else {
       sessionNav = (
         <div className="sessionNav-container">
-          <input id="loginBtn" type="button" value="login" ref="login" onClick={this.runLogin}/>
-          <input id="signupBtn" type="button" value="sign up" ref="signup" onClick={this.runSignup}/>
+          <input className="sessionBtns" id="loginBtn" type="button" value="login" ref="login" onClick={this.runLogin}/>
+          <input className="sessionBtns" id="signupBtn" type="button" value="sign up" ref="signup" onClick={this.runSignup}/>
           {modal}
         </div>
       );
