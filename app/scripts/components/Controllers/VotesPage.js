@@ -3,6 +3,7 @@ import React from 'react';
 import store from '../../store';
 import Search from '../Search';
 import Header from '../Header';
+import VoteImage from '../VoteImage';
 
 const VotesPage = React.createClass({
   getInitialState: function () {
@@ -14,6 +15,7 @@ const VotesPage = React.createClass({
     this.setState({votedCollection: store.votedCollection.toJSON()});
   },
   componentDidMount: function () {
+    store.votedCollection.fetch();
     store.votedCollection.on('update change', this.updateState);
   },
   componentWillUnMount: function () {
@@ -21,8 +23,8 @@ const VotesPage = React.createClass({
   },
   render: function () {
     let votedBands;
-    votedBands = this.state.votedCollection.map((band, i) => {
-      return (<ResultImage key={band.id} band={band} />);
+    votedBands = this.state.votedCollection.map((votedBand, i) => {
+      return (<VoteImage key={i} band={votedBand} />);
     });
     return (
       <div className="votesPage-container">
@@ -30,7 +32,7 @@ const VotesPage = React.createClass({
         {this.props.children}
         <Search />
         <h2>Highest Ranked Artists</h2>
-        <ul>{}</ul>
+        <ul>{votedBands}</ul>
       </div>
     );
   }

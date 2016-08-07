@@ -28,6 +28,10 @@ const VotedCollection = Backbone.Collection.extend({
     votingBand.save(null, {
       success: (model, response) => {
         console.log('YOU UPDATED THE ALREADY-VOTED-FOR-BAND');
+        if (model.get('voteRank') === 0) {
+          model.destroy();
+          console.log('DESTORYED' + model.attributes.name + 'BECAUSE HE WAS AT ZERO VOTES');
+        }
         this.trigger('update');
       },
       error: function(model, response) {
@@ -39,7 +43,6 @@ const VotedCollection = Backbone.Collection.extend({
   addVoteFunction: function(votingBand){
     let newVoteRank = votingBand.get('voteRank') + 1;
     let userVoting = store.session.get('username');
-    // let votersArr = this.get('allVoters');
     let newAllVoters = votingBand.get('allVoters').concat(userVoting);
     votingBand.set('voteRank', newVoteRank);
     votingBand.set('allVoters', newAllVoters);
@@ -63,15 +66,19 @@ const VotedCollection = Backbone.Collection.extend({
     let band = store.searchCollection.get(spotifyId);
 
     let newAllVoters = [store.session.get('username')];
-    let newVoteRank = band.get('voteRank') + 1;
+    let newVoteRank = 1;
 
     this.create({
       spotifyId: spotifyId,
       name: band.attributes.name,
+      spotify_url: band.attributes.spotify_url,
+      imageUrl: band.attributes.imageUrl,
+      popularity: band.attributes.popularity,
       voteRank: newVoteRank,
       allVoters: newAllVoters
     },{
       success: (model, response) => {
+      console.log(model);
       console.log('SUCCESS! YOU VOTED FOR: ', band.attributes.name);
       },
       error: function(model, response) {
