@@ -194,6 +194,18 @@
     .header .sessionNav-container input {
       margin: 0 10%;
       color: #C1C3C6; }
+    .header .sessionNav-container p {
+      margin: 2% 0 0 0;
+      font-size: 1em;
+      font-weight: 100;
+      color: #9BF0E1;
+      align-self: center;
+      border-left: solid 1px;
+      padding-left: 5%; }
+  @media (max-width: 970px) {
+    .header .sessionNav-container p {
+      padding-left: 4%;
+      width: 8em; } }
 
 .modal-container {
   position: fixed;
@@ -207,8 +219,7 @@
   align-items: center; }
   .modal-container .modal-content {
     background: rgba(255, 255, 255, 0.4);
-    max-height: 40vw;
-    min-height: 35vh;
+    height: 48vh;
     max-width: 35vw;
     min-width: 20vw;
     border-radius: 10px;
@@ -252,7 +263,6 @@
       margin: 0 auto;
       width: 75%;
       padding: 5%;
-      margin-bottom: 5%;
       border-radius: 5px;
       font-size: 1.3em; }
       .modal-container .modal-content .userInfoBtn:hover {
