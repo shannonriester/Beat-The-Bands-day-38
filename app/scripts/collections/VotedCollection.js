@@ -15,7 +15,6 @@ const VotedCollection = Backbone.Collection.extend({
         kinveyId = bandModel.get('_id');
       }
     });
-    console.log(kinveyId);
     return kinveyId;
   },
   unVoteFunction: function(votingBand){
@@ -44,13 +43,14 @@ const VotedCollection = Backbone.Collection.extend({
   },
   addVoteFunction: function(votingBand){
     let newVoteRank = votingBand.get('voteRank') + 1;
-    let userVoting = store.session.get('username');
-    let newAllVoters = votingBand.get('allVoters').concat(userVoting);
+    let newAllVoters = votingBand.get('allVoters').concat(store.session.get('username'));
     votingBand.set('voteRank', newVoteRank);
     votingBand.set('allVoters', newAllVoters);
-
+    // console.log();
     votingBand.save(null, {
       success: (model, response) => {
+        console.log(model.get('voteRank'));
+        console.log(model);
         console.log('YOU VOTED');
       },
       error: function(model, response) {
@@ -84,25 +84,29 @@ const VotedCollection = Backbone.Collection.extend({
    });
  },
   voteToggle: function(spotifyId) {
-    console.log(this);
-    let votedBand = this.models.reduce((returnSoFar, bandModel, i, arr) => {
+    let votedBand = this.models.filter((bandModel, i, arr) => {
       if (bandModel.get('spotifyId') === spotifyId) {
         console.log('bandModel ', bandModel);
         return bandModel;
       }
-    }, false);
-
+    });
 //FIRST IF-ELSE: IF there is a band in the VotedCollection...
-    if (votedBand) {
+  console.log(votedBand);
+    if (votedBand[0]) {
       console.log('SOMEONE voted on this');
         //if 'shannon' is in there...
-      if (votedBand.get('allVoters').indexOf(store.session.get('username')) !== -1) {
+        let allVotersArr = votedBand[0].get('allVoters');
+        let newAllVotersTruth = allVotersArr.indexOf(store.session.get('username'));
+        console.log(allVotersArr);
+        console.log(newAllVotersTruth);
+
+      if (votedBand[0].get('allVoters').indexOf(store.session.get('username')) !== -1) {
         // console.log(votedBand.get('allVoters').indexOf(store.session.get('username'));
         console.log('YOU VOTED ON THIS ALREADY');
-        this.unVoteFunction(votedBand);
+        this.unVoteFunction(votedBand[0]);
       } else {
         //ELSE IF the user HASN'T VOTED on the band...save vote and update vote model
-        this.addVoteFunction(votedBand);
+        this.addVoteFunction(votedBand[0]);
       }
     } else {
       // this.createVoteModel(spotifyId)
