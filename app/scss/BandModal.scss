@@ -1,0 +1,51 @@
+.bandModal-content {
+  max-height: 70vh;
+  min-height: 75vh;
+  max-width: 75vw;
+  min-width: 75vw;
+  background: #000;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  animation: slideIn 1s;
+
+  @keyframes slideIn {
+    from {
+      margin-top: -100%;
+      width: 300%;
+    }
+    to {
+      margin-top: 0%;
+      width: 100%;
+    }
+  }
+  .modal-coverImg {
+    max-height: 60vh;
+    min-height: 50vh;
+    max-width: 60vw;
+    min-width: 50vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.spotify-link {
+  color: #FFF;
+}
+.vote-btn {
+  &:hover {
+    background: #8D32D1;
+    transform: scale(1.2);
+    transition: transform 1s;
+    transition: background 1s;
+    /*
+    animation: spin 2s linear infinate;
+    @keyframes spin {
+    0% {transform: translateY(50px)}
+    100% {transform: translateY(50px)} */
+
+  }
+}
+}

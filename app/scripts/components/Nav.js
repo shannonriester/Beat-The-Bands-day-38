@@ -8,14 +8,20 @@ const Nav = React.createClass({
     console.log(this.props.userSearch);
     hashHistory.push(`/bands/search/${sessionStorage.searchTerm}`);
   },
+  navigateHome: function() {
+    hashHistory.push(`/`);
+  },
   navigateVotesPage: function() {
     hashHistory.push(`/allvotes`);
   },
   render: function() {
     return (
       <nav className="nav">
-        <input className="homeBtn navBtn" type="button" value="search" onClick={this.navigateResults} />
-        <input className="votesBnt navBtn" type="button" value="votes" onClick={this.navigateVotesPage}/>
+        <div className="nav-container">
+          <input className="homeBtn navBtn" type="button" value="home" onClick={this.navigateHome} />
+          <input className="searchBtn navBtn" type="button" value="results" onClick={this.navigateResults} />
+          <input className="votesBnt navBtn" type="button" value="votes" onClick={this.navigateVotesPage}/>
+        </div>
         <SessionNav />
         {//<UserSearBar />
         }

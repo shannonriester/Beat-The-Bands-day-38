@@ -1,14 +1,45 @@
 .header {
+  display: flex;
   background: rgba(0, 0, 0, .6);
+  h2 {
+    margin: 0 0 0 2em;
+    color: #FFF;
+    align-self: center;
+    font-weight: 100;
+  }
   .nav {
-    // display: flex;
-    .navBtn {
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
+    display: flex;
+    flex: 100;
+    height: 10vh;
+    justify-content: flex-end;
+    input {
+      border: none;
+      font-size: 1em;
+      font-weight: 200;
+      padding: 0;
+      outline: none;
+      &:hover {
+        color: #9BF0E1;
+        transition: .5s;
+      }
     }
-    .sessionBtns {
-      // padding: 10%
+    .nav-container {
+      display: flex;
+      flex: 150;
+      justify-content: flex-end;
+      input {
+        margin: 0 3%;
+      }
+    }
+
+  }
+  .sessionNav-container {
+    display: flex;
+    flex: 50;
+    justify-content: flex-start;
+    input {
+      margin: 0 10%;
+      color: #C1C3C6;
     }
   }
 }
