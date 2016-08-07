@@ -102,6 +102,18 @@ const VotedCollection = Backbone.Collection.extend({
       this.createVoteModel(spotifyId)
     }
   },
+  toggleBandModal: function (id) {
+    console.log('id on searchCollection ', id);
+    if (id) {
+      if (!this.get(id).get('viewing')) {
+        this.get(id).set('viewing', true);
+      } else {
+        this.get(id).set('viewing', false);
+      }
+    } else {
+      this.set('viewing', false);
+    }
+  }
 });
 
 export default VotedCollection;

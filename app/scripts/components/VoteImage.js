@@ -5,11 +5,9 @@ import BandModal from './BandModal';
 
 const VoteImage = React.createClass({
   viewBand: function (e) {
-    console.log(this.props);
     store.votedCollection.get(this.props.band._id).set('viewing', true);
   },
   render: function () {
-    // console.log(this.props);
     let bandModal;
     if (this.props.band.viewing) {
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;

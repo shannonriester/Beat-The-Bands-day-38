@@ -7,18 +7,17 @@ import store from '../store';
 const BandModal = React.createClass({
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
-
-      store.searchCollection.toggleBandModal(this.props.band.id);
+      if (this.props.band.id) {
+        store.searchCollection.toggleBandModal(this.props.band.id);
+      } else {
+        console.log(this.props.band.spotifyId);
+        store.votedCollection.toggleBandModal(this.props.band._id);
+      }
       e.stopPropagation();
     }
   },
   voteFunction: function () {
     if (!localStorage.authtoken) {
-      //figure out how to shake button and send message to user
-      // document.getElementById()
-      // document.querySelector()
-      // document.querySelectorAll()
-      // document.getElementByClassName()
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
       store.votedCollection.voteToggle(this.props.band.id);
