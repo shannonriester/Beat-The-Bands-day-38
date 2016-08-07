@@ -60,7 +60,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  list-style-type: none; }
+  list-style-type: none;
+  align-items: flex-end; }
   .page-container .li-band:hover {
     transition: 1s;
     background: darken; }
@@ -69,7 +70,7 @@
     width: 100%;
     height: 20%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     align-self: flex-end;
     justify-content: center; }
     .page-container .li-band .data-section:hover {
@@ -79,41 +80,69 @@
       font-size: 2.5vh;
       font-weight: 200;
       margin: 0;
-      color: #FFF; }
+      color: #FFF;
+      width: 80%; }
     .page-container .li-band .data-section .popularity {
       justify-content: flex-start;
       align-content: flex-start;
       align-items: flex-start;
       width: 40%; }
+    .page-container .li-band .data-section .fa-spotify {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 2em; }
+      .page-container .li-band .data-section .fa-spotify:hover {
+        color: rgba(29, 185, 84, 0.9);
+        transform: scale(1.2);
+        transition: transform 1s; }
+@media (max-width: 899px) {
+  .page-container .li-band {
+    width: 45vw;
+    height: 40vh;
+    margin: 1em 1em; } }
+@media (max-width: 670px) {
+  .page-container .li-band {
+    width: 60vw;
+    margin: 1em auto;
+    height: 55vw; }
+  .page-container .data-section {
+    background: rgba(51, 15, 80, 0.8);
+    width: 100%;
+    height: 15%; }
+    .page-container .data-section h3 {
+      font-size: 2.5vh;
+      font-weight: 400;
+      margin: 0 auto;
+      color: #FFF;
+      width: 60%; } }
 
 .header {
   background: rgba(0, 0, 0, 0.6); }
-  .header #search-bar, .header #search-button {
+  .header .search-bar, .header .search-button {
     padding: 5%;
     width: 40vw;
     border-radius: 15px;
     font-size: 1.5em;
     font-weight: 100; }
-  .header #search-bar {
+  .header .search-bar {
     color: #FFF;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
     outline: none; }
-  .header #search-bar::-webkit-input-placeholder {
+  .header .search-bar::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: rgba(255, 255, 255, 0.6); }
-  .header #search-bar::-moz-placeholder, .header :-moz-placeholder {
+  .header .search-bar::-moz-placeholder, .header :-moz-placeholder {
     /* Firefox 19+/Firefox 18- */
     color: rgba(255, 255, 255, 0.6); }
-  .header #search-button {
+  .header .search-button {
     background: rgba(255, 255, 255, 0.2);
     color: #FFF;
     font-weight: 300;
     border: solid #FFF 2px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
-    .header #search-button:hover {
+    .header .search-button:hover {
       color: #D83B81;
       background: #FFF;
       transition: 1s; }
@@ -212,28 +241,32 @@
       0% {transform: translateY(50px)}
       100% {transform: translateY(50px)} */ }
 
-.votesPage-container .searchComponent {
-  margin-top: 5%;
+.searchComponent {
   text-align: center; }
-.votesPage-container #search-bar, .votesPage-container #search-button {
+
+.search-bar, .search-button {
   padding: 1%;
   border-radius: 15px;
   font-size: 1.5em;
   font-weight: 100; }
-.votesPage-container #search-bar {
+
+.search-bar {
   width: 64vw;
   color: #FFF;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
   outline: none; }
-.votesPage-container #search-bar::-webkit-input-placeholder {
+
+.search-bar::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: rgba(255, 255, 255, 0.6); }
-.votesPage-container #search-bar::-moz-placeholder, .votesPage-container :-moz-placeholder {
+
+.search-bar::-moz-placeholder, :-moz-placeholder {
   /* Firefox 19+/Firefox 18- */
   color: rgba(255, 255, 255, 0.6); }
-.votesPage-container #search-button {
+
+.search-button {
   background: rgba(255, 255, 255, 0.2);
   width: 24vw;
   color: #FFF;
@@ -241,11 +274,24 @@
   border: solid #FFF 2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
-  .votesPage-container #search-button:hover {
+  .search-button:hover {
     color: #D83B81;
     background: #FFF;
     transition: 1s; }
 
+#shake {
+  animation: 300ms shake; }
+@keyframes shake {
+  0% {
+    transform: translateX(1%); }
+  25% {
+    transform: translateX(-1%); }
+  50% {
+    transform: translateX(1%); }
+  75% {
+    transform: translateX(-1%); }
+  100% {
+    transform: translateX(0%); } }
 body {
   margin: 0;
   padding: 0;
