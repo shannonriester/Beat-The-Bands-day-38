@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../../store';
 import Search from '../Search';
@@ -20,11 +21,16 @@ const VotesPage = React.createClass({
     store.votedCollection.on('change', this.updateState);
   },
   componentWillUnmount: function () {
-    store.searchedCollection.off('update change', this.updateState);
+    store.votedCollection.off('update change', this.updateState);
   },
   render: function () {
-    let votedBands;
-    votedBands = this.state.votedCollection.map((votedBand, i) => {
+
+    let sortedBands = _.sortBy(this.state.votedCollection, (votedBand) => votedBand.voteRank);
+    sortedBands.reverse();
+
+    let votedbands;
+
+    votedbands = sortedBands.map((votedBand, i) => {
       return (<VoteImage key={i} band={votedBand} />);
     });
     return (
@@ -33,7 +39,7 @@ const VotesPage = React.createClass({
         {this.props.children}
         <Search />
         <h2>Highest Ranked Artists</h2>
-        <ul>{votedBands}</ul>
+        <ul>{votedbands}</ul>
       </div>
     );
   }

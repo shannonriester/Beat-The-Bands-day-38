@@ -21,18 +21,14 @@ const BandModal = React.createClass({
     }
   },
   render: function() {
-    console.log(store.votedCollection.models);
-    console.log(this.props.band.id);
     let rank;
-    console.log();
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
-    console.log(kinveyId);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
+    } else if (this.props.band._id){
+      rank = this.props.band.voteRank;
+      //will have to fix that this doesn't respond the correct way when looking at the modal on the Votes page...
     }
-    // } else {
-    //   rank = 0;
-    // }
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};
