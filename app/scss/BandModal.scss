@@ -1,51 +1,65 @@
 .bandModal-content {
-  max-height: 70vh;
-  min-height: 75vh;
-  max-width: 75vw;
-  min-width: 75vw;
-  background: #000;
+  // display: flex;
+  height: 75vh;
+  width: 75vw;
+  background: rgba(#000, .8);
   margin: 0 auto;
   text-align: center;
   align-items: center;
   animation: slideIn 1s;
-
   @keyframes slideIn {
     from {
       margin-top: -100%;
-      width: 300%;
+      // width: 300%;
     }
     to {
       margin-top: 0%;
-      width: 100%;
+      // width: 100%;
     }
   }
+  .bandHeadings {
+    text-align: center;
+    color: #FFF;
+  }
+  .pop-data {
+    color: #FFF;
+  }
   .modal-coverImg {
-    max-height: 60vh;
-    min-height: 50vh;
-    max-width: 60vw;
-    min-width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    width: 75vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
 }
-.spotify-link {
-  color: #FFF;
-}
-.vote-btn {
-  &:hover {
-    background: #8D32D1;
-    transform: scale(1.2);
-    transition: transform 1s;
-    transition: background 1s;
-    /*
-    animation: spin 2s linear infinate;
-    @keyframes spin {
-    0% {transform: translateY(50px)}
-    100% {transform: translateY(50px)} */
-
+.band-info {
+  .voting-section {
+    color: #FFF;
+    .vote-btn {
+      width: 35vw;
+      padding: 2%;
+      border-radius: 10px;
+      border: solid 1px;
+      font-weight: 100;
+      &:hover {
+        transition: background 1s;
+        background: rgba(#7C25F8, .9);
+      }
+    }
   }
 }
+  .back-btn {
+    width: 35vw;
+    padding: 2%;
+    border-radius: 10px;
+    border: solid 1px;
+    font-weight: 100;
+    &:hover {
+      transition: .5s;
+      background: #FFF;
+      color: #D83B81;
+    }
+  }
 }

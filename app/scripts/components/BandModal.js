@@ -28,8 +28,8 @@ const BandModal = React.createClass({
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
-    } else if (this.props.band._id){
-      rank = this.props.band.voteRank;
+    } else {
+      rank = 0;
     }
 
     let imageUrl = this.props.band.imageUrl;
@@ -37,17 +37,17 @@ const BandModal = React.createClass({
     return (
       <div className="modal-container" onClick={this.hideModal}>
         <div className="bandModal-content">
+          <h2 className="bandHeadings">{this.props.band.name}</h2>
+          <data className="pop-data">Popularity <span className="highlight">{this.props.band.popularity}</span></data>
           <div className="modal-coverImg" style={styles}>
-            <h2>{this.props.band.name}</h2>
+            <p className="spotify-link"><span className="highlight">{this.props.band.name}</span>Spotify <a href={this.props.band.spotify_url}><i className="fa fa-spotify" aria-hidden="true"></i></a></p>
+          </div>
+          <div className="band-info">
             <section className="voting-section">
               <input className="vote-btn" type="button" value="vote" onClick={this.voteFunction} />
               <data className="votes-data">Votes: {rank}</data>
             </section>
-          </div>
-          <data className="pop-data">{this.props.band.popularity}</data>
-          <p className="spotify-link">Check out <a href={this.props.band.spotify_url}>{this.props.band.name}</a> on Spotify</p>
-          <input className="back-btn" type="button" value="back" onClick={this.hideModal} />
-
+            </div>
         </div>
       </div>
     )
