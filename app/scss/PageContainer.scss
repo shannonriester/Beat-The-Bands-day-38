@@ -70,8 +70,6 @@
     background-position: center center;
 
     &:hover {
-      // transform: scale(1.1);
-      // transition: transform 1s;
       background-position: center center;
     }
     .data-section {
@@ -133,6 +131,10 @@
       width: 45vw;
       height: 40vh;
       margin: 1em 1em;
+      background-position: top center;
+      &:hover {
+        background-position: top center;
+      }
     }
 
   }

@@ -4,7 +4,7 @@ import $ from 'jquery';
 import store from '../../store';
 import Search from '../Search';
 import Header from '../Header';
-import ResultImage from '../ResultImage';
+import BandImage from '../BandImage';
 import BandModal from '../BandModal';
 
 const ResultsPage = React.createClass({
@@ -33,7 +33,7 @@ const ResultsPage = React.createClass({
   render: function () {
     let searchResults;
     searchResults = this.state.searchResults.map((band, i) => {
-      return (<ResultImage key={band.id} band={band} />);
+      return (<BandImage key={band.spotifyId} band={band} />);
     });
     let userSearch = this.props.routeParams.search;
     return (

@@ -19,7 +19,6 @@ const SearchCollection = Backbone.Collection.extend({
           if (data.images[0]) {
             this.add({
               spotifyId: data.id,
-              id: data.id,
               type: data.artist,
               name: data.name,
               imageUrl: data.images[0].url,

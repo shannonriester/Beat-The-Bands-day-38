@@ -3,19 +3,28 @@ import React from 'react';
 import store from '../store';
 import BandModal from './BandModal';
 
-const VoteImage = React.createClass({
+const BandImage = React.createClass({
   viewBand: function (e) {
-    store.votedCollection.get(this.props.band._id).set('viewing', true);
+    if (this.props.band._id) {
+      store.votedCollection.get(this.props.band._id).set('viewing', true);
+    } else {
+      store.searchCollection.get(this.props.band.spotifyId).set('viewing', true);
+    }
   },
   render: function () {
     let bandModal;
     if (this.props.band.viewing) {
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
-      let imageUrl = this.props.band.imageUrl;
-      let styles = {
-      backgroundImage: 'url(' + imageUrl + ')',
-      }
+
+    // console.log(store.votedCollection.get(this.props.band._id).get('allVoters'));
+    // console.log(store.votedCollection.get(this.props.band._id).get('voteRank'));
+    // console.log(store.votedCollection.models);
+
+    let imageUrl = this.props.band.imageUrl;
+    let styles = {
+    backgroundImage: 'url(' + imageUrl + ')',
+    }
     return (
       <li className="li-band" onClick={this.viewBand} style={styles}>
         <section className="data-section">
@@ -28,4 +37,4 @@ const VoteImage = React.createClass({
   }
 });
 
-export default VoteImage;
+export default BandImage;

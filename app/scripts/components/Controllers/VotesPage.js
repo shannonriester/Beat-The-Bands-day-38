@@ -4,7 +4,7 @@ import _ from 'underscore';
 import store from '../../store';
 import Search from '../Search';
 import Header from '../Header';
-import VoteImage from '../VoteImage';
+import BandImage from '../BandImage';
 
 const VotesPage = React.createClass({
   getInitialState: function () {
@@ -17,21 +17,20 @@ const VotesPage = React.createClass({
   },
   componentDidMount: function () {
     store.votedCollection.fetch();
-    store.votedCollection.on('update', this.updateState);
-    store.votedCollection.on('change', this.updateState);
+    store.votedCollection.on('change update', this.updateState);
+    store.session.on('change update', this.updateState);
   },
   componentWillUnmount: function () {
     store.votedCollection.off('update change', this.updateState);
+    store.session.off('change update', this.updateState);
   },
   render: function () {
-
     let sortedBands = _.sortBy(this.state.votedCollection, (votedBand) => votedBand.voteRank);
     sortedBands.reverse();
 
     let votedbands;
-
     votedbands = sortedBands.map((votedBand, i) => {
-      return (<VoteImage key={i} band={votedBand} />);
+      return (<BandImage key={i} band={votedBand} />);
     });
     return (
       <div className="votesPage page-container">

@@ -5,7 +5,6 @@ import SessionNav from './Controllers/SessionNav';
 
 const Nav = React.createClass({
   navigateResults: function() {
-    console.log(this.props.userSearch);
     hashHistory.push(`/bands/search/${sessionStorage.searchTerm}`);
   },
   navigateHome: function() {

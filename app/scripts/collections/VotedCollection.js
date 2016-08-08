@@ -10,6 +10,7 @@ const VotedCollection = Backbone.Collection.extend({
   url: `https://baas.kinvey.com/appdata/kid_Bk73T0yt/VotedCollection`,
   getKinveyId: function(spotifyId) {
     let kinveyId;
+    // kinveyId = this.findWhere({spotifyId: spotifyId}).get('_id')
     this.models.forEach((bandModel, i, arr) => {
       if (bandModel.get('spotifyId') === spotifyId) {
         kinveyId = bandModel.get('_id');
@@ -57,12 +58,11 @@ const VotedCollection = Backbone.Collection.extend({
   },
   createVoteModel: function(spotifyId){
     let band = store.searchCollection.get(spotifyId);
-
     let newAllVoters = [store.session.get('username')];
     let newVoteRank = 1;
 
     this.create({
-      spotifyId: spotifyId,
+      spotifyId: band.attributes.spotifyId,
       name: band.attributes.name,
       spotify_url: band.attributes.spotify_url,
       imageUrl: band.attributes.imageUrl,

@@ -8,15 +8,14 @@ const BandModal = React.createClass({
   getInitialState: function() {
     return {
       shakeButton: false,
-      // alreadyVoted: store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1,
     }
   },
   hideModal: function (e) {
-    if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
-      if (this.props.band.id) {
-        store.searchCollection.toggleBandModal(this.props.band.id);
-      } else {
+    if (_.toArray(e.target.classList).indexOf('modal-container') !== -1) {
+      if (this.props.band._id) {
         store.votedCollection.toggleBandModal(this.props.band._id);
+      } else {
+        store.searchCollection.toggleBandModal(this.props.band.spotifyId);
       }
       e.stopPropagation();
     }
@@ -26,16 +25,22 @@ const BandModal = React.createClass({
       this.setState({shakeButton: true});
       window.setTimeout(()=>{
         this.setState({shakeModal: false});
-      }, 500);
+      }, 1000);
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
-      store.votedCollection.voteToggle(this.props.band.id);
+      console.log('this.props.band on BandModal ', this.props.band);
+      store.votedCollection.voteToggle(this.props.band.spotifyId);
     }
   },
   render: function() {
     let rank;
     let voteButton = voteButton = <button id={animations} className="vote-btn" onClick={this.voteFunction}>Vote</button>;;
-    const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
+    let animations = '';
+    if (this.state.shakeButton) {
+      animations = 'shake';
+    }
+
+    const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
@@ -45,6 +50,7 @@ const BandModal = React.createClass({
       //figure out why this isn't finding anything in my voted collection...
       // rank = store.votedCollection.get(this.props.band.id).get('voteRank');
       rank = 0;
+      console.log(store.votedCollection);
     }
     // let votes;
     // console.log(this.props.band);
@@ -52,10 +58,7 @@ const BandModal = React.createClass({
     //   console.log(this.props.band.voteRank);
     // }
 
-    let animations = '';
-    if (this.state.shakeButton) {
-      animations = 'shake';
-    }
+
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};

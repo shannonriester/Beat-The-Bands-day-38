@@ -145,7 +145,10 @@
     .page-container .li-band {
       width: 45vw;
       height: 40vh;
-      margin: 1em 1em; } }
+      margin: 1em 1em;
+      background-position: top center; }
+      .page-container .li-band:hover {
+        background-position: top center; } }
   @media (max-width: 670px) {
     .page-container .li-band {
       width: 70vw;
