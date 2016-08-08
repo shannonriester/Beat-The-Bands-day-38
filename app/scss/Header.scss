@@ -36,9 +36,6 @@
       button {
         margin: 0 3%;
         &:hover {
-          // background: rgba(#330F50, .1);
-          // background: transparentize(#330F50, .5);
-          // border-radius: 10px;
           transform: scale(1.1);
         }
       }
@@ -70,27 +67,21 @@
       font-size: 1em;
       font-weight: 100;
       color: #9BF0E1;
-      // align-self: center;
       border-left: solid 1px;
-      // padding: 0 0 0 5%;
     }
     .divider.loggedIn {
       width: 90%;
-      // padding: 0 5% 0 0;
     }
   }
 
   @media (max-width: 970px) {
     .sessionNav-container {
       p {
-        // margin: 2% 0 0 0;
-        // font-size: 1em;
-        // font-weight: 100;
-        // color: #9BF0E1;
-        // align-self: center;
-        // border-left: solid 1px;
         padding-left: 4%;
         width: 8em;
+      }
+      .sessionBtns:last-child {
+        margin-right: 4em;
       }
     }
   }

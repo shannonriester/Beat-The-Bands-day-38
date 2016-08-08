@@ -1,7 +1,5 @@
 import Backbone from 'backbone';
 
-import store from '../store';
-
 const SessionModel = Backbone.Model.extend({
   idAttribute: '_id',
   urlRoot: `https://baas.kinvey.com/user/kid_Bk73T0yt/login`,

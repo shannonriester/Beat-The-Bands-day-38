@@ -204,7 +204,9 @@
   @media (max-width: 970px) {
     .header .sessionNav-container p {
       padding-left: 4%;
-      width: 8em; } }
+      width: 8em; }
+    .header .sessionNav-container .sessionBtns:last-child {
+      margin-right: 4em; } }
 
 .modal-container {
   position: fixed;
