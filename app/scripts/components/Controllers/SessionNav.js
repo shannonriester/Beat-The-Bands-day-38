@@ -14,13 +14,13 @@ const SessionNav = React.createClass({
     this.setState({authtoken: store.session.get('authtoken')});
   },
   componentDidMount: function () {
-    store.session.on('change', this.updateState);
+    store.session.on('change update', this.updateState);
     // store.session.getLocation().then((position) => {
     //   console.log(position);
     // });
   },
   componentWillUnmount: function () {
-    store.session.off('change', this.updateState);
+    store.session.off('change update', this.updateState);
   },
   runLogout: function () {
     store.session.logout();

@@ -34,32 +34,45 @@
     background-repeat: no-repeat;
     background-position: center center;
 }
-.band-info {
+.band-info{
+  display: flex;
   .voting-section {
-    color: #FFF;
+    display: flex;
+    flex: 75;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
     .vote-btn {
       width: 35vw;
       padding: 2%;
       border-radius: 10px;
       border: solid 1px;
       font-weight: 100;
+      color: #FFF;
+      background: transparent;
+      outline: none;
       &:hover {
         transition: background 1s;
         background: rgba(#7C25F8, .9);
       }
     }
-  }
-}
-  .back-btn {
-    width: 35vw;
-    padding: 2%;
-    border-radius: 10px;
-    border: solid 1px;
-    font-weight: 100;
-    &:hover {
-      transition: .5s;
-      background: #FFF;
-      color: #D83B81;
+    .alreadyVoted {
+      background: rgba(#7C25F8, .9);
+      outline: none;
+      &:hover {
+        transition: background 1s;
+        background: transparent;
+      }
     }
   }
+  .voteTotal-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 25;
+    background: rgba(#D83B81, .8);
+    color: #FFF;
+  }
+}
+
 }

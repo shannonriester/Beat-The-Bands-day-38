@@ -28,7 +28,7 @@ const Search = React.createClass({
       animations = 'shake';
     }
     return (
-      <form id={animations} className="searchComponent" onSubmit={this.searchFunction} >
+      <form className={animations} className="searchComponent" onSubmit={this.searchFunction} >
         <input className="search-bar" type="text" placeholder="search an artist..." ref="searchInput"  />
         <input className="search-button" type="submit" value="search" onClick={this.searchFunction} />
       </form>
