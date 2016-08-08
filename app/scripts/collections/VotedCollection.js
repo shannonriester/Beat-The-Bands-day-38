@@ -29,7 +29,7 @@ const VotedCollection = Backbone.Collection.extend({
         console.log('YOU UPDATED THE ALREADY-VOTED-FOR-BAND');
         if (model.get('voteRank') === 0) {
           model.destroy();
-          console.log('DESTORYED' + model.attributes.name + 'BECAUSE HE WAS AT ZERO VOTES');
+          console.log('DESTORYED' + model.attributes.name + 'BECAUSE BAND WAS AT ZERO VOTES');
         }
         this.trigger('update');
       },

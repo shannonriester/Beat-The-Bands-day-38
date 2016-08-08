@@ -65,7 +65,7 @@ const BandModal = React.createClass({
           <h2 className="bandHeadings">{this.props.band.name}</h2>
           <data className="pop-data">Popularity <span className="highlight">{this.props.band.popularity}</span></data>
           <div className="modal-coverImg" style={styles}>
-            <p className="spotify-link"><span className="highlight">{this.props.band.name} </span>Spotify <a href={this.props.band.spotify_url}><i className="fa fa-spotify" aria-hidden="true"></i></a></p>
+            <p className="spotify-link"><span className="highlight">{this.props.band.name} </span>on Spotify <a href={this.props.band.spotify_url}><i className="fa fa-spotify" aria-hidden="true"></i></a></p>
           </div>
           <div className="band-info">
             <section className="voting-section">

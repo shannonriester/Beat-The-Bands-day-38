@@ -38,7 +38,7 @@ const VotesPage = React.createClass({
         <Header />
         {this.props.children}
         <Search />
-        <h2>Highest Ranked Artists</h2>
+        <h2>Top Voted Artists</h2>
         <ul>{votedbands}</ul>
       </div>
     );

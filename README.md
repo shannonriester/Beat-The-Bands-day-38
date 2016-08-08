@@ -34,3 +34,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 ## Dependencies
 - `sass` [install guide here](http://sass-lang.com/install)
+
+
+//to do
+- vote/unvote on Votes page
+- update view when user logs in on votes page
+- testing
