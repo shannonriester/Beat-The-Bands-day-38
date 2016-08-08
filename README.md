@@ -40,3 +40,8 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - vote/unvote on Votes page
 - update view when user logs in on votes page
 - testing
+- show before modal if user has voted on that band
+- show vote count on the preview view
+- hide "votes" page if not signed in
+- fix signup modal view
+- put in divider for login/signup (when not logged in)
