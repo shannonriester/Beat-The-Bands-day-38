@@ -297,27 +297,39 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; }
-  .bandModal-content .band-info .voting-section {
-    color: #FFF; }
-    .bandModal-content .band-info .voting-section .vote-btn {
-      width: 35vw;
-      padding: 2%;
-      border-radius: 10px;
-      border: solid 1px;
-      font-weight: 100; }
-      .bandModal-content .band-info .voting-section .vote-btn:hover {
-        transition: background 1s;
-        background: rgba(124, 37, 248, 0.9); }
-  .bandModal-content .back-btn {
-    width: 35vw;
-    padding: 2%;
-    border-radius: 10px;
-    border: solid 1px;
-    font-weight: 100; }
-    .bandModal-content .back-btn:hover {
-      transition: .5s;
-      background: #FFF;
-      color: #D83B81; }
+  .bandModal-content .band-info {
+    display: flex; }
+    .bandModal-content .band-info .voting-section {
+      display: flex;
+      flex: 75;
+      align-items: center;
+      justify-content: center;
+      height: 15vh; }
+      .bandModal-content .band-info .voting-section .vote-btn {
+        width: 35vw;
+        padding: 2%;
+        border-radius: 10px;
+        border: solid 1px;
+        font-weight: 100;
+        color: #FFF;
+        background: transparent;
+        outline: none; }
+        .bandModal-content .band-info .voting-section .vote-btn:hover {
+          transition: background 1s;
+          background: rgba(124, 37, 248, 0.9); }
+      .bandModal-content .band-info .voting-section .alreadyVoted {
+        background: rgba(124, 37, 248, 0.9);
+        outline: none; }
+        .bandModal-content .band-info .voting-section .alreadyVoted:hover {
+          transition: background 1s;
+          background: transparent; }
+    .bandModal-content .band-info .voteTotal-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 25;
+      background: rgba(216, 59, 129, 0.8);
+      color: #FFF; }
 
 .search-bar, .search-button {
   padding: 5%;
