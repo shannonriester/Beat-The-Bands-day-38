@@ -38,9 +38,11 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 //to do
 - vote/unvote on Votes page
+- what happened to my shake feature!?
 - update view when user logs in on votes page
 - testing
 - show before modal if user has voted on that band
 - show vote count on the preview view
 - hide "votes" page if not signed in
-- fix signup modal view
+- if undefined on search query term...
+- add 'then' and 'promise functionality' and explain about it in my readme

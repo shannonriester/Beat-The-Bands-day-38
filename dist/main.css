@@ -374,7 +374,7 @@
     background: #FFF;
     transition: background 1s; }
 
-#shake {
+#shakeSearch {
   animation: 300ms shake; }
 @keyframes shake {
   0% {
@@ -413,6 +413,7 @@ input {
   padding: 1%;
   font-size: 1.3em;
   background: none;
-  color: #FFF; }
+  color: #FFF;
+  outline: none; }
 
 /*# sourceMappingURL=main.css.map */

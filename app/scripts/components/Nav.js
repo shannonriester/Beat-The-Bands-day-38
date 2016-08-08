@@ -5,7 +5,11 @@ import SessionNav from './Controllers/SessionNav';
 
 const Nav = React.createClass({
   navigateResults: function() {
-    hashHistory.push(`/bands/search/${sessionStorage.searchTerm}`);
+    if (!sessionStorage.searchTerm) {
+      hashHistory.push(`/`);
+    } else {
+      hashHistory.push(`/bands/search/${sessionStorage.searchTerm}`);
+    }
   },
   navigateHome: function() {
     hashHistory.push(`/`);
