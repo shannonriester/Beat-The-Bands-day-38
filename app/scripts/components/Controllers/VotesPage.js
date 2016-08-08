@@ -15,6 +15,12 @@ const VotesPage = React.createClass({
   updateState: function () {
     this.setState({votedCollection: store.votedCollection.toJSON()});
   },
+  shouldComponentUpdate: function(props, state) {
+    if (store.session.get('authtoken') && !state.votedCollection.length) {
+      store.votedCollection.fetch();
+    }
+    return true;
+  },
   componentDidMount: function () {
     store.session.on('change update', this.updateState);
     store.votedCollection.fetch();

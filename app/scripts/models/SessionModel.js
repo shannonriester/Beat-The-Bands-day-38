@@ -37,10 +37,10 @@ const SessionModel = Backbone.Model.extend({
       { username: username, password: password},
       { success: (model, response) => {
           console.log('USER SIGNED IN', username);
-
           localStorage.authtoken = response._kmd.authtoken;
           this.unset('password');
-          this.trigger('change');
+          this.trigger('change update');
+
       },
        error: function(model, response) {
          throw new Error('LOGIN FAILED');
@@ -57,7 +57,6 @@ const SessionModel = Backbone.Model.extend({
       success: (model, response) => {
         console.log('USER SIGNED UP!', username);
         localStorage.authtoken = response._kmd.authtoken;
-        // this.set('authtoken', response._kmd.authtoken);
         this.unset('password');
       },
       error: function(model, response) {

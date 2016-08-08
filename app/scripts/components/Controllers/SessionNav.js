@@ -9,25 +9,32 @@ const SessionNav = React.createClass({
     return {
       hideModal: true,
       authtoken: store.session.get('authtoken'),
+      // session: store.session,
     }
   },
   updateState: function () {
     this.setState({authtoken: store.session.get('authtoken')});
+    store.votedCollection.reset();
+    // if (store.session.get('authtoken')) {
+    //   store.votedCollection.fetch();
+    // }
+
   },
   componentDidMount: function () {
-    store.session.on('change update', this.updateState);
+    store.session.on('change', this.updateState);
+    // store.votedCollection.reset();
     // store.session.getLocation().then((position) => {
     //   console.log(position);
     // });
   },
   componentWillUnmount: function () {
-    store.session.off('change update', this.updateState);
+    store.session.off('change', this.updateState);
   },
   runLogout: function () {
     store.session.logout();
     store.session.set('isLogginIn', false);
     store.session.set('isSigningUp', false);
-    hashHistory.push(`/`);
+    // hashHistory.push(`/`);
   },
   runLogin: function () {
     this.setState({hideModal:false});
