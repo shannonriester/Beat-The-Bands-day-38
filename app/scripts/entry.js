@@ -23,19 +23,6 @@ const router = (
   </Router>
 );
 
-// const router = (
-//   <Route path="/" component={App}>
-//     <IndexRoute component={SearchPage}/>
-//     <Route path="/bands" component={PageWHeader}>
-//       <IndexRoute onEnter={change route somehow}
-      // <Route path="/bands/search" comoponent={Results}/>
-      // <Route path="/bands/votes" comoponent={AllVotes}/>
-//       <Redirect from="/bands" to="/" />
-//     </Route>
-//   </Route>
-// );
-
-
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   if (jqueryAjax.url.indexOf('spotify') === -1) {
     if (localStorage.authtoken) {
@@ -45,8 +32,11 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
     }
   }
 });
-if (localStorage.authtoken) {
+
+if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anonToken) {
   store.session.retrieve();
+} else {
+  localStorage.authtoken = store.anonToken;
 }
 
 

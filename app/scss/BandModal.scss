@@ -1,7 +1,6 @@
 .bandModal-content {
-  // display: flex;
   height: 75vh;
-  width: 50vw;
+  width: 35em;
   background: rgba(#000, .8);
   margin: 0 auto;
   text-align: center;
@@ -10,11 +9,9 @@
   @keyframes slideIn {
     from {
       margin-top: -100%;
-      // width: 300%;
     }
     to {
       margin-top: 0%;
-      // width: 100%;
     }
   }
   .bandHeadings {
@@ -29,7 +26,7 @@
     justify-content: center;
     align-items: flex-end;
     height: 50vh;
-    width: 50vw;
+    width: 35em;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -48,7 +45,7 @@
     justify-content: center;
     height: 15vh;
     .vote-btn {
-      width: 25vw;
+      width: 55%;
       padding: 2%;
       border-radius: 10px;
       border: solid 1px;
@@ -79,5 +76,9 @@
     color: #FFF;
   }
 }
-
+  @media (max-width: 880px) {
+    .bandModal-content {
+      width: 50vw;
+    }
+  }
 }

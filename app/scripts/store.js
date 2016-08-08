@@ -6,6 +6,7 @@ import VoteModel from './models/VoteModel';
 
 
 export default({
+    anonToken: 'afe43b20-9499-48f1-a1f7-7ffa9d8b99d4.dDsyxSzL3cOFa0ctR35XC5yHVsCN2Sh5551M/a+SibQ=',
     session: new SessionModel(),
     searchCollection: new SearchCollection(),
     votedCollection: new VotedCollection(),
