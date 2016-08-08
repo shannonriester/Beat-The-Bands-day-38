@@ -271,45 +271,53 @@
         transition: .5s; }
 
 .bandModal-content {
-  max-height: 70vh;
-  min-height: 75vh;
-  max-width: 75vw;
-  min-width: 75vw;
-  background: #000;
+  height: 75vh;
+  width: 75vw;
+  background: rgba(0, 0, 0, 0.8);
   margin: 0 auto;
   text-align: center;
   align-items: center;
   animation: slideIn 1s; }
 @keyframes slideIn {
   from {
-    margin-top: -100%;
-    width: 300%; }
+    margin-top: -100%; }
   to {
-    margin-top: 0%;
-    width: 100%; } }
+    margin-top: 0%; } }
+  .bandModal-content .bandHeadings {
+    text-align: center;
+    color: #FFF; }
+  .bandModal-content .pop-data {
+    color: #FFF; }
   .bandModal-content .modal-coverImg {
-    max-height: 60vh;
-    min-height: 50vh;
-    max-width: 60vw;
-    min-width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    width: 75vw;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center; }
-  .bandModal-content .spotify-link {
+    background-position: center center; }
+  .bandModal-content .band-info .voting-section {
     color: #FFF; }
-  .bandModal-content .vote-btn:hover {
-    background: #8D32D1;
-    transform: scale(1.2);
-    transition: transform 1s;
-    transition: background 1s;
-    /*
-    animation: spin 2s linear infinate;
-    @keyframes spin {
-    0% {transform: translateY(50px)}
-    100% {transform: translateY(50px)} */ }
+    .bandModal-content .band-info .voting-section .vote-btn {
+      width: 35vw;
+      padding: 2%;
+      border-radius: 10px;
+      border: solid 1px;
+      font-weight: 100; }
+      .bandModal-content .band-info .voting-section .vote-btn:hover {
+        transition: background 1s;
+        background: rgba(124, 37, 248, 0.9); }
+  .bandModal-content .back-btn {
+    width: 35vw;
+    padding: 2%;
+    border-radius: 10px;
+    border: solid 1px;
+    font-weight: 100; }
+    .bandModal-content .back-btn:hover {
+      transition: .5s;
+      background: #FFF;
+      color: #D83B81; }
 
 .search-bar, .search-button {
   padding: 5%;
