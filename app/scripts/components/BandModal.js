@@ -34,9 +34,13 @@ const BandModal = React.createClass({
   },
   render: function() {
     let rank;
+    let voteButton = voteButton = <button id={animations} className="vote-btn" onClick={this.voteFunction}>Vote</button>;;
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.id);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
+      if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
+        voteButton = <button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>;
+      }
     } else {
       //figure out why this isn't finding anything in my voted collection...
       // rank = store.votedCollection.get(this.props.band.id).get('voteRank');
@@ -52,14 +56,6 @@ const BandModal = React.createClass({
     if (this.state.shakeButton) {
       animations = 'shake';
     }
-
-    let voteButton;
-    if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
-      voteButton = <button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>;
-    } else {
-      voteButton = <button id={animations} className="vote-btn" onClick={this.voteFunction}>Vote</button>;
-    }
-
 
     let imageUrl = this.props.band.imageUrl;
     let styles = {backgroundImage: 'url(' + imageUrl + ')'};
