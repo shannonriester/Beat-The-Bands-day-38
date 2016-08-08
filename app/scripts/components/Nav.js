@@ -17,9 +17,10 @@ const Nav = React.createClass({
     return (
       <nav className="nav">
         <div className="nav-container">
-          <input className="homeBtn navBtn" type="button" value="home" onClick={this.navigateHome} />
-          <input className="searchBtn navBtn" type="button" value="results" onClick={this.navigateResults} />
-          <input className="votesBnt navBtn" type="button" value="votes" onClick={this.navigateVotesPage}/>
+          <button className="homeBtn navBtn" onClick={this.navigateHome}>
+          <i className="icon fa fa-home" aria-hidden="true"></i>Home</button>
+          <button className="searchBtn navBtn" onClick={this.navigateResults}><i className="icon fa fa-search" aria-hidden="true"></i>Search</button>
+          <button className="votesBnt navBtn" onClick={this.navigateVotesPage}><i className="icon fa fa-thumbs-up" aria-hidden="true"></i>Votes</button>
         </div>
         <SessionNav />
         {//<UserSearBar />

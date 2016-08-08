@@ -17,10 +17,6 @@ const BandImage = React.createClass({
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
 
-    // console.log(store.votedCollection.get(this.props.band._id).get('allVoters'));
-    // console.log(store.votedCollection.get(this.props.band._id).get('voteRank'));
-    // console.log(store.votedCollection.models);
-
     let imageUrl = this.props.band.imageUrl;
     let styles = {
     backgroundImage: 'url(' + imageUrl + ')',

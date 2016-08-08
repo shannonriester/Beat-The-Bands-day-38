@@ -20,15 +20,20 @@ const ResultsPage = React.createClass({
     this.setState({votedCollection: store.votedCollection.toJSON()});
   },
   componentDidMount: function () {
+    store.session.on('change update', this.updateState);
+
     store.searchCollection.getResults(this.props.params.search);
     store.searchCollection.on('update change', this.updateState);
+
 
     store.votedCollection.fetch();
     store.votedCollection.on('update change', this.updateState);
   },
   componentWillUnmount: function () {
+    store.session.off('change update', this.updateState);
     store.searchCollection.off('update change', this.updateState);
     store.votedCollection.off('update change', this.updateState);
+
   },
   render: function () {
     let searchResults;

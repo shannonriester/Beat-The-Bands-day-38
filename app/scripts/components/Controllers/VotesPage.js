@@ -16,9 +16,9 @@ const VotesPage = React.createClass({
     this.setState({votedCollection: store.votedCollection.toJSON()});
   },
   componentDidMount: function () {
+    store.session.on('change update', this.updateState);
     store.votedCollection.fetch();
     store.votedCollection.on('change update', this.updateState);
-    store.session.on('change update', this.updateState);
   },
   componentWillUnmount: function () {
     store.votedCollection.off('update change', this.updateState);
