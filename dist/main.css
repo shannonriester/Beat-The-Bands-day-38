@@ -218,8 +218,8 @@
   align-items: center; }
   .modal-container .modal-content {
     background: rgba(255, 255, 255, 0.4);
-    height: 48vh;
-    width: 35vw;
+    height: 55vh;
+    width: 25em;
     border-radius: 10px;
     text-align: center;
     animation: bounceIn .4s; }
@@ -270,8 +270,10 @@
         background: #FFF;
         transition: .5s; }
   @media (min-width: 1144px) {
-    .modal-container .modal-content h2 {
-      width: 100%; } }
+    .modal-container .modal-content {
+      height: 65vh; }
+      .modal-container .modal-content h2 {
+        width: 100%; } }
 
 .bandModal-content {
   height: 75vh;

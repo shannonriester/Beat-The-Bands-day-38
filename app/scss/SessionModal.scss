@@ -10,8 +10,8 @@
   align-items: center;
   .modal-content {
     background: rgba(#FFF, .4);
-    height: 48vh;
-    width: 35vw;
+    height: 55vh;
+    width: 25em;
     border-radius: 10px;
     text-align: center;
     animation: bounceIn .4s;
@@ -77,12 +77,15 @@
   }
   @media (min-width: 1144px) {
     .modal-content {
-      // width: 30vw;
+      height: 65vh;
       h2 {
         width: 100%;
       }
     }
   }
+  @media(max-width: 1200) {
+    .modal-content {
 
-
+    }
+  }
 }
