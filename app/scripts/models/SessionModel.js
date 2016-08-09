@@ -12,19 +12,6 @@ const SessionModel = Backbone.Model.extend({
     isSigningUp: false,
     shakeModal: false,
   },
-  getLocation: function() {
-    var promise = new Promise(function(resolve, reject) {
-      if ('geolocation' in navigator) {
-        window.navigator.geolocation.getCurrentPosition(function(position){
-          //result in SessionNav.js
-          // console.log(position);
-        });
-      } else {
-        reject('This browser doesn\'t support geolocation...');
-      }
-    });
-    return promise;
-  },
   parse: function(response) {
     if (response) {
       return {
@@ -44,11 +31,11 @@ const SessionModel = Backbone.Model.extend({
           console.log('authtoken ', localStorage.authtoken);
           // this.set('authtoken', response._kmd.authtoken);
           localStorage.setItem('authtoken', response._kmd.authtoken);
-          console.log('authtoken ', localStorage.authtoken);
-          console.log(localStorage.setItem('authtoken', response._kmd.authtoken));
+          // console.log('authtoken ', localStorage.authtoken);
+          // console.log(localStorage.setItem('authtoken', response._kmd.authtoken));
           this.unset('password');
           this.trigger('change update');
-          console.log(response._kmd.authtoken);
+          // console.log(response._kmd.authtoken);
 
       },
        error: function(model, response) {

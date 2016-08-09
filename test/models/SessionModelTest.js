@@ -8,7 +8,6 @@ describe ('SessionModel', function(){
     expect(sessionTest).to.exist;
   });
   it('should have the properties: getLocation, parse, login, signup, logout, retrieve', () => {
-    expect(sessionTest).to.have.property('getLocation');
     expect(sessionTest).to.have.property('parse');
     expect(sessionTest).to.have.property('login');
     expect(sessionTest).to.have.property('signup');
@@ -17,7 +16,6 @@ describe ('SessionModel', function(){
   });
 
   it('\'s properties should all be functions', () => {
-    // expect(sessionTest.getlocation).to.be.a('function');
     expect(sessionTest.parse).to.be.a('function');
     expect(sessionTest.login).to.be.a('function');
     expect(sessionTest.signup).to.be.a('function');
@@ -25,7 +23,6 @@ describe ('SessionModel', function(){
     expect(sessionTest.retrieve).to.be.a('function');
   });
   it('should respond to the methods: ', () => {
-    // expect(sessionTest.getlocation).to.respondTo('getlocation');
     expect(sessionTest).to.respondTo('parse');
     expect(sessionTest).to.respondTo('login');
     expect(sessionTest).to.respondTo('signup');
@@ -33,7 +30,12 @@ describe ('SessionModel', function(){
     expect(sessionTest).to.respondTo('retrieve');
   });
 
-  it('should login shannon and password')
+
+  // it('should be satisfied with two string arguments', () => {
+  //   let username = 'shannon';
+  //   let password = 'password';
+  //   expect(username, password).to.satisfy(sessionTest.login(username, password));
+  // });
 
 
 
