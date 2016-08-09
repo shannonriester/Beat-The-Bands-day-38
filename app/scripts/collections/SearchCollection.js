@@ -2,8 +2,6 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 import BandModel from '../models/BandModel';
-import store from '../store';
-// import '../../assets/noImg_Mic.png';
 
 const SearchCollection = Backbone.Collection.extend({
   model: BandModel,

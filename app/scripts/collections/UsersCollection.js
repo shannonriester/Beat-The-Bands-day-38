@@ -2,7 +2,6 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 
 import VoteModel from '../models/VoteModel';
-import store from '../store';
 
 const UserCollection = Backbone.Collection.extend({
   model: VoteModel,

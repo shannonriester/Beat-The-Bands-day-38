@@ -33,11 +33,4 @@ describe ('BandModel', function() {
 
   });
 
-
-
-
-
-
-
-
 });

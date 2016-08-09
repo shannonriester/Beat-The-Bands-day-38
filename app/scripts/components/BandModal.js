@@ -22,19 +22,16 @@ const BandModal = React.createClass({
     }
   },
   voteFunction: function () {
-    console.log('localStorage.authtoken ', localStorage.authtoken);
-    console.log('store.anonToken ', store.anonToken);
     if (localStorage.authtoken == store.anonToken) {
-      console.log('localStorage is equal to store.anonToken');
-      // this.setState({shakeButton: true});
       this.setState({loginMessage: true});
       window.setTimeout(()=>{
-        // this.setState({shakeButton: false});
         this.setState({loginMessage: false});
       }, 1000);
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
-      store.votedCollection.voteToggle(this.props.band.spotifyId);
+      let searchedband = store.searchCollection.get(this.props.band.spotifyId);
+      console.log(this.props.band);
+      store.votedCollection.voteToggle(this.props.band, store.session.get('username'));
     }
   },
   render: function() {
@@ -52,9 +49,8 @@ const BandModal = React.createClass({
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
-      console.log(store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')));
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
-        voteButton = (<button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>{voteMessage}</button>);
+        voteButton = (<button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>You Voted!</button>);
       }
     }
     else {

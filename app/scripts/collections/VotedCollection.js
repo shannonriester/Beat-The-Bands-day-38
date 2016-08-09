@@ -3,7 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import VoteModel from '../models/VoteModel';
-import store from '../store';
+// import store from '../store';
 
 const VotedCollection = Backbone.Collection.extend({
   model: VoteModel,
@@ -18,9 +18,9 @@ const VotedCollection = Backbone.Collection.extend({
     });
     return kinveyId;
   },
-  unVoteFunction: function(votingBand){
+  unVoteFunction: function(votingBand, username){
     let newVoteRank = votingBand.get('voteRank') - 1;
-    let newAllVoters = _.without(votingBand.get('allVoters'), store.session.get('username'));
+    let newAllVoters = _.without(votingBand.get('allVoters'), username);
 
     votingBand.set('voteRank', newVoteRank);
     votingBand.set('allVoters', newAllVoters);
@@ -40,15 +40,13 @@ const VotedCollection = Backbone.Collection.extend({
     });
 
   },
-  addVoteFunction: function(votingBand){
+  addVoteFunction: function(votingBand, username){
     let newVoteRank = votingBand.get('voteRank') + 1;
-    let newAllVoters = votingBand.get('allVoters').concat(store.session.get('username'));
+    let newAllVoters = votingBand.get('allVoters').concat(username);
     votingBand.set('voteRank', newVoteRank);
     votingBand.set('allVoters', newAllVoters);
     votingBand.save(null, {
       success: (model, response) => {
-        console.log(model.get('voteRank'));
-        console.log(model);
         console.log('YOU VOTED');
       },
       error: function(model, response) {
@@ -56,9 +54,9 @@ const VotedCollection = Backbone.Collection.extend({
       }
     });
   },
-  createVoteModel: function(spotifyId){
-    let band = store.searchCollection.get(spotifyId);
-    let newAllVoters = [store.session.get('username')];
+  createVoteModel: function(band, username){
+    // let band = store.searchCollection.get(spotifyId);
+    let newAllVoters = [username];
     let newVoteRank = 1;
 
     this.create({
@@ -71,7 +69,6 @@ const VotedCollection = Backbone.Collection.extend({
       allVoters: newAllVoters
     },{
       success: (model, response) => {
-      console.log(model);
       console.log('SUCCESS! YOU VOTED FOR: ', band.attributes.name);
       },
       error: function(model, response) {
@@ -79,27 +76,23 @@ const VotedCollection = Backbone.Collection.extend({
       }
    });
  },
-  voteToggle: function(spotifyId) {
+  voteToggle: function(bandObj, username) {
     let votedBand = this.models.filter((bandModel, i, arr) => {
-      if (bandModel.get('spotifyId') === spotifyId) {
+      if (bandModel.get('spotifyId') === bandObj.spotifyId) {
         return bandModel;
       }
     });
 //FIRST IF-ELSE: IF there is a band in the VotedCollection...
     if (votedBand[0]) {
-        //if 'sessionUsername' is in there...
-        let allVotersArr = votedBand[0].get('allVoters');
-        let newAllVotersTruth = allVotersArr.indexOf(store.session.get('username'));
-
-      if (votedBand[0].get('allVoters').indexOf(store.session.get('username')) !== -1) {
+      if (votedBand[0].get('allVoters').indexOf(username) !== -1) {
         console.log('YOU VOTED ON THIS ALREADY');
-        this.unVoteFunction(votedBand[0]);
+        this.unVoteFunction(votedBand[0], username);
       } else {
         //ELSE IF the user HASN'T VOTED on the band...save vote and update vote model
-        this.addVoteFunction(votedBand[0]);
+        this.addVoteFunction(votedBand[0], username);
       }
     } else {
-      this.createVoteModel(spotifyId)
+      this.createVoteModel(bandObj, username)
     }
   },
   toggleBandModal: function (id) {
