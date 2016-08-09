@@ -80,12 +80,7 @@ const BandModal = React.createClass({
               </section>
 
               <section className="voting-modal-footer voters-section">
-                <Transition
-                  transitionName="slideColumn"
-                  transitionEnterTimeout={1000}
-                  transitionLeaveTimeout={1000}>
                   <p className="voteTotal-section">{rank} votes</p>
-                  </Transition>
               </section>
 
           </div>
