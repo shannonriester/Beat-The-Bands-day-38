@@ -74,7 +74,17 @@
     flex: 25;
     background: rgba(#D83B81, .8);
     color: #FFF;
+    &:hover {
+      background: rgba(#D83B81, .7);
+    }
   }
+  .slideColumn-enter{
+    width: 25em;
+    height: 25em;
+  }
+  .slideColumn-enter.slideColumn-enter-active{}
+  .slideColumn-leave{}
+  .slideColumn-leave.slideColumn-leave-active{}
 }
   @media (max-width: 880px) {
     .bandModal-content {

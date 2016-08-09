@@ -14,13 +14,6 @@ const VoteModel = Backbone.Model.extend({
     viewing: false,
   },
 
-    // console.log(didVote);
-
-    // console.log(this.get('allVoters'));
-
-    // band.save();
-
-
 });
 
 export default VoteModel;

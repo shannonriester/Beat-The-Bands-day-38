@@ -26,7 +26,7 @@ const Search = React.createClass({
   render: function() {
     let animations = '';
     if (this.state.shakeModal) {
-      animations = 'shakeSearch';
+      animations = 'shake';
     }
     return (
       <form id={animations} className="searchComponent" onSubmit={this.searchFunction} >

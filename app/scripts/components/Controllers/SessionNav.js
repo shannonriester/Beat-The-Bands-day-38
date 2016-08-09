@@ -9,13 +9,14 @@ const SessionNav = React.createClass({
     return {
       hideModal: true,
       authtoken: localStorage.getItem('authtoken'),
+      // username: store.sesssion.get('username'),
     }
   },
   updateState: function () {
     if (this.state.authtoken === store.anonToken) {
-
+      console.log('the authtoken is the anonToken');
     } else {
-      this.setState({authtoken: localStorage.getItem('authtoken')});
+      this.setState({authtoken: store.session.get('authtoken')});
       store.votedCollection.reset();
     }
   },
@@ -51,14 +52,14 @@ const SessionNav = React.createClass({
       modal = <Modal hideModal={this.hideModal}/>;
     }
     let divider;
-    if (localStorage.authtoken = store.anonToken) {
+    if (localStorage.authtoken === store.anonToken) {
       divider = <p className="divider"></p>;
     } else {
       divider = <p className="divider loggedIn">Hi, {store.session.get('username')}!</p>
     }
 
     let sessionNav;
-    if (localStorage.authtoken && localStorage.authtoken !== store.anonToken) {
+    if (localStorage.authtoken !== store.anonToken) {
       sessionNav = (
         <div className="sessionNav-container">
           {divider}

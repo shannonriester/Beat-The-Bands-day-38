@@ -106,6 +106,8 @@
           color: rgba(29, 185, 84, 0.9);
           transform: scale(1.2);
           transition: transform 1s; }
+      .page-container .li-band .data-section .votesPreview {
+        color: #FFF; }
   @media (min-width: 1151px) {
     .page-container .li-band {
       width: 18vw;
@@ -341,6 +343,11 @@
       flex: 25;
       background: rgba(216, 59, 129, 0.8);
       color: #FFF; }
+      .bandModal-content .band-info .voteTotal-section:hover {
+        background: rgba(216, 59, 129, 0.7); }
+    .bandModal-content .band-info .slideColumn-enter {
+      width: 25em;
+      height: 25em; }
   @media (max-width: 880px) {
     .bandModal-content .bandModal-content {
       width: 50vw; } }
@@ -379,19 +386,6 @@
     background: #FFF;
     transition: background 1s; }
 
-#shakeSearch {
-  animation: 300ms shake; }
-@keyframes shake {
-  0% {
-    transform: translateX(1%); }
-  25% {
-    transform: translateX(-1%); }
-  50% {
-    transform: translateX(1%); }
-  75% {
-    transform: translateX(-1%); }
-  100% {
-    transform: translateX(0%); } }
 body {
   margin: 0;
   padding: 0;
@@ -420,5 +414,19 @@ input {
   background: none;
   color: #FFF;
   outline: none; }
+
+#shake {
+  animation: 300ms shake; }
+@keyframes shake {
+  0% {
+    transform: translateX(1%); }
+  25% {
+    transform: translateX(-1%); }
+  50% {
+    transform: translateX(1%); }
+  75% {
+    transform: translateX(-1%); }
+  100% {
+    transform: translateX(0%); } }
 
 /*# sourceMappingURL=main.css.map */

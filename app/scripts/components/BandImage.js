@@ -16,7 +16,7 @@ const BandImage = React.createClass({
     if (this.props.band.viewing) {
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
-
+    // <a href={this.props.band.spotify_url} className="spotifyUrl"><i className="fa fa-spotify" aria-hidden="true"></i></a>
     let imageUrl = this.props.band.imageUrl;
     let styles = {
     backgroundImage: 'url(' + imageUrl + ')',
@@ -25,7 +25,7 @@ const BandImage = React.createClass({
       <li className="li-band" onClick={this.viewBand} style={styles}>
         <section className="data-section">
           <h3 className="band-name">{this.props.band.name}</h3>
-          <a href={this.props.band.spotify_url} className="spotifyUrl"><i className="fa fa-spotify" aria-hidden="true"></i></a>
+          <div className='votesPreview'>{this.props.band.voteRank} votes</div>
         </section>
         {bandModal}
       </li>

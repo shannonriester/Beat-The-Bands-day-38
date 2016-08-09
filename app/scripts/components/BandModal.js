@@ -1,4 +1,5 @@
 import React from 'react';
+import Transition from 'react-addons-css-transition-group';
 import _ from 'underscore';
 
 import store from '../store';
@@ -8,6 +9,7 @@ const BandModal = React.createClass({
   getInitialState: function() {
     return {
       shakeButton: false,
+      loginMessage: false,
     }
   },
   hideModal: function (e) {
@@ -21,10 +23,12 @@ const BandModal = React.createClass({
     }
   },
   voteFunction: function () {
-    if (!localStorage.authtoken) {
+    if (localStorage.authtoken === store.anonToken) {
       this.setState({shakeButton: true});
+      this.setState({loginMessage: true});
       window.setTimeout(()=>{
-        this.setState({shakeModal: false});
+        this.setState({shakeButton: false});
+        this.setState({loginMessage: false});
       }, 1000);
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
@@ -34,10 +38,12 @@ const BandModal = React.createClass({
   },
   render: function() {
     let rank;
-    let voteButton = voteButton = <button id={animations} className="vote-btn" onClick={this.voteFunction}>Vote</button>;;
+    let voteButton;
+    let voteMessage = 'vote';
     let animations = '';
     if (this.state.shakeButton) {
       animations = 'shake';
+      voteMessage = 'login to vote!'
     }
 
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
@@ -47,21 +53,10 @@ const BandModal = React.createClass({
         voteButton = <button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>;
       }
     } else {
-      //figure out why this isn't finding anything in my voted collection...
-      // rank = store.votedCollection.get(this.props.band.id).get('voteRank');
       rank = 0;
-      console.log(store.votedCollection);
     }
-    // let votes;
-    // console.log(this.props.band);
-    // if (this.props.band.voteRank) {
-    //   console.log(this.props.band.voteRank);
-    // }
 
-
-
-    let imageUrl = this.props.band.imageUrl;
-    let styles = {backgroundImage: 'url(' + imageUrl + ')'};
+    let styles = {backgroundImage: 'url(' + this.props.band.imageUrl + ')'};
     return (
       <div className="modal-container" onClick={this.hideModal}>
         <div className="bandModal-content">
@@ -72,9 +67,15 @@ const BandModal = React.createClass({
           </div>
           <div className="band-info">
             <section className="voting-section">
-              {voteButton}
+              <button id={animations} className="vote-btn" onClick={this.voteFunction}>{voteMessage}</button>;
             </section>
-            <section className="voteTotal-section">{rank} votes</section>
+            <Transition
+              transitionName="slideColumn"
+              transitionEnterTimeout={1000}
+              transitionLeaveTimeout={1000}
+            >
+              <section className="voteTotal-section">{rank} votes</section>
+            </Transition>
             </div>
         </div>
       </div>

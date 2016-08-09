@@ -33,9 +33,10 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   }
 });
 
-if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anonToken) {
+if (localStorage.authtoken !== store.anonToken) {
   store.session.retrieve();
-} else {
+}
+else if (!localStorage.authtoken) {
   localStorage.authtoken = store.anonToken;
 }
 
