@@ -23,11 +23,7 @@ const BandImage = React.createClass({
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
 
-    if (voteRank.innerText == 1) {
-      voteKeyWord = 'vote';
-    } else {
-      voteKeyWord = 'votes';
-    }
+
 
     if(kinveyId) {
       voteRank = store.votedCollection.get(kinveyId).get('voteRank');
@@ -36,6 +32,11 @@ const BandImage = React.createClass({
         votedStyles = {
           background: 'rgba(#1DB954, .8)',
         }
+      }
+      if (voteRank === 1) {
+        voteKeyWord = 'vote';
+      } else {
+        voteKeyWord = 'votes';
       }
     }
 

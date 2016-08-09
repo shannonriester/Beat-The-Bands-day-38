@@ -56,8 +56,6 @@ const VotedCollection = Backbone.Collection.extend({
   createVoteModel: function(band, username){
     let newAllVoters = [username];
     let newVoteRank = 1;
-    console.log(band);
-
     this.create({
       spotifyId: band.spotifyId,
       name: band.name,

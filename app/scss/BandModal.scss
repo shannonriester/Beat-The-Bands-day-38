@@ -80,7 +80,7 @@
       border: none;
       height: 100%;
       width: 100%;
-      color: #D83B81;
+      color: #FFF;
       background: transparent;
       &:hover {
         transition: background 1s;
@@ -103,11 +103,11 @@
       align-items: center;
       justify-content: center;
       flex: 25;
-      background: rgba(#D83B81, .8);
+      background: transparent;
       color: #FFF;
       &:hover {
-        transition: 1s;
-        background: rgba(#D83B81, .7);
+        transition: background 1s;
+        background: #D83B81;
       }
     }
     p {

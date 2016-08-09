@@ -36,8 +36,9 @@ const BandModal = React.createClass({
   },
   render: function() {
     let rank;
-    let voteMessage = 'vote';
     let animations = '';
+    let voteKeyWord;
+    let voteMessage = 'vote';
 
     if (this.state.loginMessage) {
       console.log('loginMessage is true');
@@ -46,15 +47,25 @@ const BandModal = React.createClass({
     }
     //order for these declarations MATTER
     let voteButton = (<button id={animations} className="vote-btn" onClick={this.voteFunction}>{voteMessage}</button>);
+
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
+
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
+      console.log(rank);
+
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
         voteButton = (<button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>You Voted!</button>);
       }
     }
     else {
       rank = 0;
+    }
+
+    if (rank === 1) {
+      voteKeyWord = ' vote';
+    } else {
+      voteKeyWord = ' votes';
     }
 
     let styles = {backgroundImage: 'url(' + this.props.band.imageUrl + ')'};
@@ -76,7 +87,7 @@ const BandModal = React.createClass({
               </section>
 
               <section className="voting-modal-footer voters-section">
-                  <p className="voteTotal-section">{rank} votes</p>
+                  <p className="voteTotal-section">{rank} {voteKeyWord}</p>
               </section>
 
           </div>
