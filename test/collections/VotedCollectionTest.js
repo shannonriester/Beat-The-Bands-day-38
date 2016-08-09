@@ -7,8 +7,8 @@ describe ('VotedCollection', function() {
       expect(votedTest).to.exist;
     });
 
-    it('should have a VotedModel property value on it', () => {
-      expect(votedTest.model).to.be('VoteModel');
-    });
+    // it('should have a VotedModel property value on it', () => {
+    //   expect(votedTest.model).to.be('VoteModel');
+    // });
 
 });

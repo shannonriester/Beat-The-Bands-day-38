@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import SessionModel from '../../app/scripts/models/SessionModel.js';
+import SessionModel from '../../app/scripts/models/SessionModel';
 
 describe ('SessionModel', function(){
   let sessionTest = new SessionModel();

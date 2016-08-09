@@ -1,6 +1,5 @@
 import SearchCollection from './collections/SearchCollection';
 import VotedCollection from './collections/VotedCollection';
-// import BandModel from './models/BandModel';
 import SessionModel from './models/SessionModel';
 import VoteModel from './models/VoteModel';
 

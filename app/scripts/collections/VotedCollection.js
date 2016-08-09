@@ -3,7 +3,6 @@ import _ from 'underscore';
 import $ from 'jquery';
 
 import VoteModel from '../models/VoteModel';
-// import store from '../store';
 
 const VotedCollection = Backbone.Collection.extend({
   model: VoteModel,
@@ -55,7 +54,6 @@ const VotedCollection = Backbone.Collection.extend({
     });
   },
   createVoteModel: function(band, username){
-    // let band = store.searchCollection.get(spotifyId);
     let newAllVoters = [username];
     let newVoteRank = 1;
 

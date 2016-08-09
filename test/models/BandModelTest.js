@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import BandModel from '../../app/scripts/models/BandModel.js';
+import BandModel from '../../app/scripts/models/BandModel';
 
 describe ('BandModel', function() {
   let bandTest = new BandModel();

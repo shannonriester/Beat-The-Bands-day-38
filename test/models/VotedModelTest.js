@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import VoteModel from '../../app/scripts/models/VoteModel.js';
+import VoteModel from '../../app/scripts/models/VoteModel';
 
 describe ('BandModel', function() {
   let voteTest = new VoteModel();
