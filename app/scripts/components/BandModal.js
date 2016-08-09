@@ -38,7 +38,7 @@ const BandModal = React.createClass({
   },
   render: function() {
     let rank;
-    let voteButton;
+    let voteButton = (<button id={animations} className="vote-btn" onClick={this.voteFunction}>{voteMessage}</button>);
     let voteMessage = 'vote';
     let animations = '';
     if (this.state.shakeButton) {
@@ -48,10 +48,10 @@ const BandModal = React.createClass({
 
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     if(kinveyId) {
-      console.log(kinveyId);
       rank = store.votedCollection.get(kinveyId).get('voteRank');
+      console.log(store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')));
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
-        voteButton = <button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>;
+        voteButton = (<button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>);
       }
     }
     // else {
@@ -69,7 +69,7 @@ const BandModal = React.createClass({
           </div>
           <div className="band-info">
             <section className="voting-section">
-              <button id={animations} className="vote-btn" onClick={this.voteFunction}>{voteMessage}</button>;
+              {voteButton}
             </section>
             <Transition
               transitionName="slideColumn"

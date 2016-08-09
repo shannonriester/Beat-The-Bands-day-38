@@ -46,3 +46,4 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - if undefined on search query term...
 
 - add 'then' and 'promise functionality' and explain about it in my readme
+- swipe over/next on bandModal 

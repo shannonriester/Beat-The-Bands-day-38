@@ -22,7 +22,6 @@ const BandImage = React.createClass({
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     if(kinveyId) {
       voteRank = store.votedCollection.get(kinveyId).get('voteRank');
-      console.log(voteRank);
       if (voteRank === 1) {
         voteKeyWord = 'vote';
       } else {
