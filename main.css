@@ -357,7 +357,7 @@
         border: none;
         height: 100%;
         width: 100%;
-        color: #D83B81;
+        color: #FFF;
         background: transparent; }
         .bandModal-content .band-info .voting-section .vote-btn:hover {
           transition: background 1s;
@@ -374,11 +374,11 @@
       align-items: center;
       justify-content: center;
       flex: 25;
-      background: rgba(216, 59, 129, 0.8);
+      background: transparent;
       color: #FFF; }
       .bandModal-content .band-info .voters-section .voteTotal-section:hover {
-        transition: 1s;
-        background: rgba(216, 59, 129, 0.7); }
+        transition: background 1s;
+        background: #D83B81; }
     .bandModal-content .band-info .voters-section p {
       margin: 0;
       height: 15vh;
