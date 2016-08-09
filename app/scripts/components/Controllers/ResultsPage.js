@@ -25,7 +25,7 @@ const ResultsPage = React.createClass({
     store.searchCollection.getResults(this.props.params.search);
     store.searchCollection.on('update change', this.updateState);
 
-    // store.votedCollection.fetch();
+    store.votedCollection.fetch();
     store.votedCollection.on('update change', this.updateState);
   },
   // shouldComponentUpdate: function (nextProps, nextState) {
@@ -38,11 +38,13 @@ const ResultsPage = React.createClass({
 
   },
   render: function () {
+    let userSearch = this.props.routeParams.search;
     let searchResults;
+
     searchResults = this.state.searchResults.map((band, i) => {
       return (<BandImage key={band.spotifyId} band={band} />);
     });
-    let userSearch = this.props.routeParams.search;
+
     return (
       <div className="resultsPage page-container">
         <Header userSearch={userSearch} />

@@ -48,13 +48,15 @@ const BandModal = React.createClass({
 
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     if(kinveyId) {
+      console.log(kinveyId);
       rank = store.votedCollection.get(kinveyId).get('voteRank');
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
         voteButton = <button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>Un-Vote</button>;
       }
-    } else {
-      rank = 0;
     }
+    // else {
+    //   rank = 0;
+    // }
 
     let styles = {backgroundImage: 'url(' + this.props.band.imageUrl + ')'};
     return (
