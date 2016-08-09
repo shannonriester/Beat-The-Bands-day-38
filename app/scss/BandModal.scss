@@ -38,24 +38,54 @@
 }
 .band-info{
   display: flex;
-  .voting-section {
-    display: flex;
-    flex: 75;
+  height: 15vh;
+  font-weight: 100;
+  outline: none;
+  background: transparent;
+  .voting-modal-footer{
+    flex: calc(100/3);
     align-items: center;
     justify-content: center;
-    height: 15vh;
-    .vote-btn {
-      width: 55%;
-      padding: 2%;
-      border-radius: 10px;
-      border: solid 1px;
-      font-weight: 100;
+    border: none;
+  }
+  .spotify-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    color: #FFF;
+    &:hover {
+      transition: 1s;
+      background: #1DB954;
+    }
+    p {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      align-content: center;
+    }
+    .fa-spotify {
       color: #FFF;
-      background: transparent;
+      font-size: 3em;
+      margin: 2% 0;
+    }
+  }
+  .voting-section{
+    border-left: solid 1px #FFF;
+    border-right: solid 1px #FFF;
+    .vote-btn {
+      padding: 2%;
+      font-size: 2em;
       outline: none;
+      border: none;
+      height: 100%;
+      width: 100%;
+      color: #D83B81;
+      background: transparent;
       &:hover {
         transition: background 1s;
         background: rgba(#7C25F8, .9);
+        color: #FFF;
       }
     }
     .alreadyVoted {
@@ -67,6 +97,11 @@
       }
     }
   }
+  .voters-section{}
+
+
+
+
   .voteTotal-section {
     display: flex;
     align-items: center;

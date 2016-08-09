@@ -57,6 +57,8 @@
     text-align: left;
   }
   .li-band {
+    position: relative;
+    z-index: auto;
     margin: 0;
     padding: 0;
     display: flex;
@@ -72,6 +74,13 @@
     &:hover {
       background-position: center center;
     }
+    .alreadyVoted-icon {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      color: #1DB954;
+      font-size: 2em;
+    }
     .data-section {
       background: rgba(#330F50, .8);
       width: 100%;
@@ -85,29 +94,27 @@
         background: rgba(#330F50, .6);
       }
       h3 {
+        flex: 150;
         font-size: 2.5vh;
         font-weight: 200;
-        margin: 0;
+        margin: 0 0 0 5%;
         color: #FFF;
         width: 80%;
       }
-      .popularity {
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
-        width: 40%;
-      }
-      .fa-spotify {
-        color: rgba(#FFF, .8);
-        font-size: 2em;
-        &:hover {
-          color: rgba(#1DB954, .9);
-          transform: scale(1.2);
-          transition: transform 1s;
-        }
-      }
-      .votesPreview {
-        color: #FFF;
+        .votedInfo {
+          color: #FFF;
+          flex: 40;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          p {
+            flex: 50;
+            margin: 0;
+          }
+          data {
+            flex: 50;
+          }
       }
     }
 

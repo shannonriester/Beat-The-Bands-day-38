@@ -37,13 +37,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 
 //to do
-- vote/unvote on Votes page
-  - who voted on what in scrolling column (onclick) -- list of all the votes
 - testing
-- show before modal if user has voted on that band
+- fix shake button if not logged in
+- who voted on what in scrolling column (onclick) -- list of all the votes
   - move spotify link to modal view
-  - show vote count on the preview view
-- if undefined on search query term...
-
 - add 'then' and 'promise functionality' and explain about it in my readme
-- swipe over/next on bandModal 
+- swipe over/next on bandModal

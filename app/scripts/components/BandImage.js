@@ -12,20 +12,30 @@ const BandImage = React.createClass({
     }
   },
   render: function () {
+    const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     let bandModal;
+    let voteKeyWord;
+    let voteRank = 0;
+    let votedStatus;
+    let votedStyles;
+
     if (this.props.band.viewing) {
       bandModal = <BandModal band={this.props.band} hideBandModal={this.props.hideBandModal} />;
     }
 
-    let voteRank;
-    let voteKeyWord;
-    const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
+    if (voteRank.innerText == 1) {
+      voteKeyWord = 'vote';
+    } else {
+      voteKeyWord = 'votes';
+    }
+
     if(kinveyId) {
       voteRank = store.votedCollection.get(kinveyId).get('voteRank');
-      if (voteRank === 1) {
-        voteKeyWord = 'vote';
-      } else {
-        voteKeyWord = 'votes';
+      if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
+        votedStatus = (<i className="alreadyVoted-icon fa fa-thumbs-up" aria-hidden="true"></i>);
+        votedStyles = {
+          background: 'rgba(#1DB954, .8)',
+        }
       }
     }
 
@@ -34,11 +44,15 @@ const BandImage = React.createClass({
     let styles = {
     backgroundImage: 'url(' + imageUrl + ')',
     }
+
     return (
       <li className="li-band" onClick={this.viewBand} style={styles}>
+        {votedStatus}
         <section className="data-section">
           <h3 className="band-name">{this.props.band.name}</h3>
-          <div className='votesPreview'>{voteRank} {voteKeyWord}</div>
+          <div className="votedInfo">
+            <data style={votedStyles}>{voteRank} {voteKeyWord}</data>
+          </div>
         </section>
         {bandModal}
       </li>
