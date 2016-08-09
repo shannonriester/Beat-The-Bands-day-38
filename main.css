@@ -64,6 +64,8 @@
     align-content: flex-end;
     text-align: left; }
   .page-container .li-band {
+    position: relative;
+    z-index: auto;
     margin: 0;
     padding: 0;
     display: flex;
@@ -77,6 +79,12 @@
     background-position: center center; }
     .page-container .li-band:hover {
       background-position: center center; }
+    .page-container .li-band .alreadyVoted-icon {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      color: #1DB954;
+      font-size: 2em; }
     .page-container .li-band .data-section {
       background: rgba(51, 15, 80, 0.8);
       width: 100%;
@@ -89,25 +97,24 @@
         transition: 1s;
         background: rgba(51, 15, 80, 0.6); }
       .page-container .li-band .data-section h3 {
+        flex: 150;
         font-size: 2.5vh;
         font-weight: 200;
-        margin: 0;
+        margin: 0 0 0 5%;
         color: #FFF;
         width: 80%; }
-      .page-container .li-band .data-section .popularity {
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
-        width: 40%; }
-      .page-container .li-band .data-section .fa-spotify {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 2em; }
-        .page-container .li-band .data-section .fa-spotify:hover {
-          color: rgba(29, 185, 84, 0.9);
-          transform: scale(1.2);
-          transition: transform 1s; }
-      .page-container .li-band .data-section .votesPreview {
-        color: #FFF; }
+      .page-container .li-band .data-section .votedInfo {
+        color: #FFF;
+        flex: 40;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        .page-container .li-band .data-section .votedInfo p {
+          flex: 50;
+          margin: 0; }
+        .page-container .li-band .data-section .votedInfo data {
+          flex: 50; }
   @media (min-width: 1151px) {
     .page-container .li-band {
       width: 18vw;
@@ -212,6 +219,7 @@
 
 .modal-container {
   position: fixed;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
@@ -311,25 +319,50 @@
       text-decoration: none;
       font-size: 2em; }
   .bandModal-content .band-info {
-    display: flex; }
-    .bandModal-content .band-info .voting-section {
-      display: flex;
-      flex: 75;
+    display: flex;
+    height: 15vh;
+    font-weight: 100;
+    outline: none;
+    background: transparent; }
+    .bandModal-content .band-info .voting-modal-footer {
+      flex: calc(100/3);
       align-items: center;
       justify-content: center;
-      height: 15vh; }
-      .bandModal-content .band-info .voting-section .vote-btn {
-        width: 55%;
-        padding: 2%;
-        border-radius: 10px;
-        border: solid 1px;
-        font-weight: 100;
+      border: none; }
+    .bandModal-content .band-info .spotify-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      color: #FFF; }
+      .bandModal-content .band-info .spotify-section:hover {
+        transition: 1s;
+        background: #1DB954; }
+      .bandModal-content .band-info .spotify-section p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        align-content: center; }
+      .bandModal-content .band-info .spotify-section .fa-spotify {
         color: #FFF;
-        background: transparent;
-        outline: none; }
+        font-size: 3em;
+        margin: 2% 0; }
+    .bandModal-content .band-info .voting-section {
+      border-left: solid 1px #FFF;
+      border-right: solid 1px #FFF; }
+      .bandModal-content .band-info .voting-section .vote-btn {
+        padding: 2%;
+        font-size: 2em;
+        outline: none;
+        border: none;
+        height: 100%;
+        width: 100%;
+        color: #D83B81;
+        background: transparent; }
         .bandModal-content .band-info .voting-section .vote-btn:hover {
           transition: background 1s;
-          background: rgba(124, 37, 248, 0.9); }
+          background: rgba(124, 37, 248, 0.9);
+          color: #FFF; }
       .bandModal-content .band-info .voting-section .alreadyVoted {
         background: rgba(124, 37, 248, 0.9);
         outline: none; }
