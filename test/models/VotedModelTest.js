@@ -9,8 +9,8 @@ describe ('BandModel', function() {
   });
 
   it('its idAttribute and urlRoot should be set to string values', () => {
-    expect(voteTest.idAttribute).to.eql('_id');;
-    expect(voteTest.urlRoot).to.eql('https://baas.kinvey.com/appdata/kid_Bk73T0yt/VotedCollection');;
+    expect(voteTest.idAttribute).to.eql('_id');
+    expect(voteTest.urlRoot).to.eql('https://baas.kinvey.com/appdata/kid_Bk73T0yt/VotedCollection');
   });
 
   it('its default value, voteRank, should be 0', () => {
