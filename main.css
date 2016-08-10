@@ -109,7 +109,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center; }
+        justify-content: center;
+        margin-right: 5%; }
         .page-container .li-band .data-section .votedInfo p {
           flex: 50;
           margin: 0; }
