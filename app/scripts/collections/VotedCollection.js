@@ -24,8 +24,10 @@ const VotedCollection = Backbone.Collection.extend({
     votingBand.set('voteRank', newVoteRank);
     votingBand.set('allVoters', newAllVoters);
 
+    // this.get('viewing').set(votingBand, false);
     votingBand.save(null, {
       success: (model, response) => {
+        model.set('vewing', false)
         console.log('YOU UPDATED THE ALREADY-VOTED-FOR-BAND');
         if (model.get('voteRank') === 0) {
           model.destroy();
@@ -46,6 +48,7 @@ const VotedCollection = Backbone.Collection.extend({
     votingBand.set('allVoters', newAllVoters);
     votingBand.save(null, {
       success: (model, response) => {
+        model.set('vewing', false)
         console.log('YOU VOTED');
       },
       error: function(model, response) {
@@ -63,10 +66,12 @@ const VotedCollection = Backbone.Collection.extend({
       imageUrl: band.imageUrl,
       popularity: band.popularity,
       voteRank: newVoteRank,
-      allVoters: newAllVoters
+      allVoters: newAllVoters,
+      // viewing: false,
     },{
       success: (model, response) => {
-      console.log('SUCCESS! YOU VOTED FOR: ', band.attributes.name);
+      // model.set('vewing', false)
+      console.log('SUCCESS! YOU VOTED FOR: ', band.name);
       },
       error: function(model, response) {
         throw new Error('FAILED TO VOTE');
@@ -92,16 +97,12 @@ const VotedCollection = Backbone.Collection.extend({
       this.createVoteModel(bandObj, username)
     }
   },
-  toggleBandModal: function (id) {
-    if (id) {
-      if (!this.get(id).get('viewing')) {
-        this.get(id).set('viewing', true);
-      } else {
-        this.get(id).set('viewing', false);
-      }
-    } else {
-      this.set('viewing', false);
-    }
+  stopShowingModal: function (id) {
+    console.log('id on the votedCollection page ', id);
+    this.get(id).set('viewing', false);
+    // if (this.get(id).get('viewing')) {
+    //   this.get(id).set('viewing', true);
+    // }
   }
 });
 

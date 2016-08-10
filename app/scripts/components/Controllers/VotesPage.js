@@ -36,7 +36,7 @@ const VotesPage = React.createClass({
 
     let votedbands;
     votedbands = sortedBands.map((votedBand, i) => {
-      return (<BandImage key={i} band={votedBand} />);
+      return (<BandImage key={votedBand._id} band={votedBand} />);
     });
     return (
       <div className="votesPage page-container">

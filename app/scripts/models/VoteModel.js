@@ -9,7 +9,7 @@ const VoteModel = Backbone.Model.extend({
     name: '',
     voteRank: 0,
     allVoters: [],
-    viewing: false,
+    // viewing: false,
   },
 
 });

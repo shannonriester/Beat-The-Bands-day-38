@@ -28,9 +28,6 @@ const ResultsPage = React.createClass({
     store.votedCollection.fetch();
     store.votedCollection.on('update change', this.updateState);
   },
-  // shouldComponentUpdate: function (nextProps, nextState) {
-  //   console.log('should we update?');
-  // },
   componentWillUnmount: function () {
     store.session.off('change update', this.updateState);
     store.searchCollection.off('update change', this.updateState);
@@ -40,9 +37,9 @@ const ResultsPage = React.createClass({
   render: function () {
     let userSearch = this.props.routeParams.search;
     let searchResults;
-
+    console.log(band);
     searchResults = this.state.searchResults.map((band, i) => {
-      return (<BandImage key={band.spotifyId} band={band} />);
+      return (<BandImage key={band.id} band={band} />);
     });
 
     return (

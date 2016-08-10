@@ -26,7 +26,11 @@ const router = (
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   if (jqueryAjax.url.indexOf('spotify') === -1) {
     if (localStorage.authtoken) {
-      xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
+      if (localStorage.authtoken === store.anonToken && jqueryAjax.url.indexOf('user') !== -1) {
+        xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
+      } else {
+        xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
+      }
     } else {
       xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
     }

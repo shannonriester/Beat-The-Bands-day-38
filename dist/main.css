@@ -293,13 +293,7 @@
   background: rgba(0, 0, 0, 0.8);
   margin: 0 auto;
   text-align: center;
-  align-items: center;
-  animation: slideIn 1s; }
-@keyframes slideIn {
-  from {
-    margin-top: -100%; }
-  to {
-    margin-top: 0%; } }
+  align-items: center; }
   .bandModal-content .bandHeadings {
     text-align: center;
     color: #FFF; }
@@ -390,6 +384,13 @@
     .bandModal-content .bandModal-content {
       width: 50vw; } }
 
+.slide-in {
+  animation: slideIn 1s; }
+@keyframes slideIn {
+  from {
+    margin-top: -100%; }
+  to {
+    margin-top: 0%; } }
 .search-bar, .search-button {
   padding: 5%;
   width: 42vw;

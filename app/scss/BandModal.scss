@@ -5,15 +5,15 @@
   margin: 0 auto;
   text-align: center;
   align-items: center;
-  animation: slideIn 1s;
-  @keyframes slideIn {
-    from {
-      margin-top: -100%;
-    }
-    to {
-      margin-top: 0%;
-    }
-  }
+  // animation: slideIn 1s;
+  // @keyframes slideIn {
+  //   from {
+  //     margin-top: -100%;
+  //   }
+  //   to {
+  //     margin-top: 0%;
+  //   }
+  // }
   .bandHeadings {
     text-align: center;
     color: #FFF;
@@ -118,8 +118,6 @@
   }
 
 
-
-
   .slideColumn-enter{
     width: 25em;
     height: 25em;
@@ -131,6 +129,18 @@
   @media (max-width: 880px) {
     .bandModal-content {
       width: 50vw;
+    }
+  }
+}
+
+.slide-in {
+  animation: slideIn 1s;
+  @keyframes slideIn {
+    from {
+      margin-top: -100%;
+    }
+    to {
+      margin-top: 0%;
     }
   }
 }

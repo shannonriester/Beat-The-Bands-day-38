@@ -9,15 +9,22 @@ const BandModal = React.createClass({
   getInitialState: function() {
     return {
       loginMessage: false,
+      modalClass: 'slide-in bandModal-content',
     }
+  },
+  componentDidMount: function() {
+    window.setTimeout(() => {
+      this.setState({modalClass:'bandModal-content'});
+    }, 1000);
   },
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1) {
-      if (this.props.band._id) {
-        store.votedCollection.toggleBandModal(this.props.band._id);
-      } else {
-        store.searchCollection.toggleBandModal(this.props.band.spotifyId);
-      }
+      // if (this.props.band._id) {
+      //   store.votedCollection.stopShowingModal(this.props.band._id);
+      // } else {
+      //   store.searchCollection.stopShowingModal(this.props.band.spotifyId);
+      // }
+      this.props.hideBandModal();
       e.stopPropagation();
     }
   },
@@ -29,8 +36,8 @@ const BandModal = React.createClass({
       }, 1000);
       console.log('YOU NEED TO LOG IN TO VOTE!');
     } else {
-      let searchedband = store.searchCollection.get(this.props.band.spotifyId);
-      console.log(this.props.band);
+      // let searchedband = store.searchCollection.get(this.props.band.spotifyId);
+      // console.log(this.props.band);
       store.votedCollection.voteToggle(this.props.band, store.session.get('username'));
     }
   },
@@ -52,7 +59,6 @@ const BandModal = React.createClass({
 
     if(kinveyId) {
       rank = store.votedCollection.get(kinveyId).get('voteRank');
-      console.log(rank);
 
       if (store.votedCollection.get(kinveyId).get('allVoters').indexOf(store.session.get('username')) !== -1) {
         voteButton = (<button id={animations} className="vote-btn alreadyVoted" onClick={this.voteFunction}>You Voted!</button>);
@@ -71,7 +77,7 @@ const BandModal = React.createClass({
     let styles = {backgroundImage: 'url(' + this.props.band.imageUrl + ')'};
     return (
       <div className="modal-container" onClick={this.hideModal}>
-        <div className="bandModal-content">
+        <div className={this.state.modalClass}>
           <h2 className="bandHeadings">{this.props.band.name}</h2>
           <data className="pop-data">Popularity <span className="highlight">{this.props.band.popularity}</span></data>
           <div className="modal-coverImg" style={styles}></div>

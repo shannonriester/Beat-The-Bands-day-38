@@ -29,16 +29,11 @@ const SearchCollection = Backbone.Collection.extend({
       }
     });
   },
-  toggleBandModal: function (id) {
-    if (id) {
-      if (!this.get(id).get('viewing')) {
-        this.get(id).set('viewing', true);
-      } else {
+  stopShowingModal: function (id) {
+    console.log('id on the searchCollection page ', id);
+
         this.get(id).set('viewing', false);
-      }
-    } else {
-      this.set('viewing', false);
-    }
+
   }
 });
 
