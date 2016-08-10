@@ -37,9 +37,8 @@ const ResultsPage = React.createClass({
   render: function () {
     let userSearch = this.props.routeParams.search;
     let searchResults;
-    console.log(band);
     searchResults = this.state.searchResults.map((band, i) => {
-      return (<BandImage key={band.id} band={band} />);
+      return (<BandImage key={i} band={band} />);
     });
 
     return (
