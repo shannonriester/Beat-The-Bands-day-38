@@ -1,7 +1,5 @@
 import Backbone from 'backbone';
 
-// import store from '../store';
-
 const SessionModel = Backbone.Model.extend({
   idAttribute: '_id',
   urlRoot: `https://baas.kinvey.com/user/kid_Bk73T0yt/login`,
@@ -26,16 +24,10 @@ const SessionModel = Backbone.Model.extend({
       { username: username, password: password},
       { success: (model, response) => {
           console.log('USER SIGNED IN', username);
-          // localStorage.authtoken = response._kmd.authtoken;
           localStorage.removeItem('authtoken');
-          console.log('authtoken ', localStorage.authtoken);
-          // this.set('authtoken', response._kmd.authtoken);
           localStorage.setItem('authtoken', response._kmd.authtoken);
-          // console.log('authtoken ', localStorage.authtoken);
-          // console.log(localStorage.setItem('authtoken', response._kmd.authtoken));
           this.unset('password');
           this.trigger('change update');
-          // console.log(response._kmd.authtoken);
 
       },
        error: function(model, response) {
@@ -51,9 +43,12 @@ const SessionModel = Backbone.Model.extend({
     {
       url: `https://baas.kinvey.com/user/kid_Bk73T0yt/`,
       success: (model, response) => {
+        localStorage.removeItem('authtoken');
         console.log('USER SIGNED UP!', username);
-        localStorage.authtoken = response._kmd.authtoken;
+        // localStorage.authtoken = response._kmd.authtoken;
+        localStorage.setItem('authtoken', response._kmd.authtoken);
         this.unset('password');
+        this.trigger('change update');
       },
       error: function(model, response) {
         throw new Error('FAILED TO SIGN UP');
