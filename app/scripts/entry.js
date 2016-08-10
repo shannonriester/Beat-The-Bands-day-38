@@ -37,10 +37,11 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   }
 });
 
-if (localStorage.authtoken !== store.anonToken) {
+if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anonToken) {
   store.session.retrieve();
 }
 else if (!localStorage.authtoken) {
+  console.log(store.anonToken);
   localStorage.authtoken = store.anonToken;
   localStorage.authtoken.setItem(store.anonToken);
 }
