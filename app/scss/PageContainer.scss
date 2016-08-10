@@ -139,8 +139,8 @@
 
   @media(max-width: 899px) {
     .li-band {
-      width: 45vw;
-      height: 40vh;
+      width: 21em;
+      height: 19em;
       margin: 1em 1em;
       background-position: top center;
       &:hover {
@@ -149,11 +149,11 @@
     }
 
   }
-  @media(max-width: 670px) {
+  @media(max-width: 735px) {
     .li-band {
-      width: 70vw;
+      width: 30em;
+      height: 25em;
       margin: 1em auto;
-      height: 55vw;
     }
     .data-section {
       background: rgba(#330F50, .8);
