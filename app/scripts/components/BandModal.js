@@ -44,13 +44,13 @@ const BandModal = React.createClass({
   render: function() {
     let rank;
     let animations = '';
-    let voteKeyWord;
+    let voteKeyWord = 'votes';
     let voteMessage = 'vote';
 
     if (this.state.loginMessage) {
       console.log('loginMessage is true');
       animations = 'shake';
-      voteMessage = 'login to vote!'
+      voteMessage = 'login to vote!';
     }
     //order for these declarations MATTER
     let voteButton = (<button id={animations} className="vote-btn" onClick={this.voteFunction}>{voteMessage}</button>);
@@ -67,7 +67,6 @@ const BandModal = React.createClass({
     else {
       rank = 0;
     }
-
     if (rank === 1) {
       voteKeyWord = ' vote';
     } else {

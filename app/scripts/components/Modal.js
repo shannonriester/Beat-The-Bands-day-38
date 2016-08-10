@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 import store from '../store';
 
-const Modal = React.createClass({
+const SessionModal = React.createClass({
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
 
@@ -37,6 +37,12 @@ const Modal = React.createClass({
   cancelFunction: function (e) {
       store.session.set('isLoggingIn', false);
       store.session.set('isSigningUp', false);
+
+      let tempUsername = this.refs.username.value;
+      let tempPassword = this.refs.username.value;
+
+      
+
       this.props.hideModal();
   },
   render: function () {
@@ -71,4 +77,4 @@ const Modal = React.createClass({
   }
 });
 
-export default Modal;
+export default SessionModal;

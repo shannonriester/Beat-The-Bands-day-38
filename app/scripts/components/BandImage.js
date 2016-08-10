@@ -50,7 +50,7 @@ const BandImage = React.createClass({
 
     const kinveyId = store.votedCollection.getKinveyId(this.props.band.spotifyId);
     let bandModal;
-    let voteKeyWord;
+    let voteKeyWord = 'votes';
     let voteRank = 0;
     let votedStatus;
     let votedStyles;
@@ -67,12 +67,13 @@ const BandImage = React.createClass({
           background: 'rgba(#1DB954, .8)',
         }
       }
-      if (voteRank === 1) {
-        voteKeyWord = 'vote';
-      } else {
-        voteKeyWord = 'votes';
-      }
     }
+    if (voteRank === 1) {
+      voteKeyWord = 'vote';
+    }
+    // else {
+    //   voteKeyWord = 'votes';
+    // }
 
     // <a href={this.props.band.spotify_url} className="spotifyUrl"><i className="fa fa-spotify" aria-hidden="true"></i></a>
     let imageUrl = this.props.band.imageUrl;

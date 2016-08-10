@@ -37,10 +37,7 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 
 //to do
-- testing
-- fix shake button if not logged in
 - who voted on what in scrolling column (onclick) -- list of all the votes
-  - move spotify link to modal view
 - add 'then' and 'promise functionality' and explain about it in my readme
 - swipe over/next on bandModal
 - if logging in and change mind, your typed stuff is still saved
