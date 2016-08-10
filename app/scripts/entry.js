@@ -41,7 +41,7 @@ if (localStorage.authtoken !== store.anonToken) {
   store.session.retrieve();
 }
 else if (!localStorage.authtoken) {
-  // localStorage.authtoken = store.anonToken;
+  localStorage.authtoken = store.anonToken;
   localStorage.authtoken.setItem(store.anonToken);
 }
 

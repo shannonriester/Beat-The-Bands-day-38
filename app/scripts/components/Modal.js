@@ -4,6 +4,12 @@ import _ from 'underscore';
 import store from '../store';
 
 const SessionModal = React.createClass({
+  getInitialState: function() {
+    return {
+      tempUsername: '',
+      tempPassword: '',
+    }
+  },
   hideModal: function (e) {
     if (_.toArray(e.target.classList).indexOf('modal-container') !== -1 || _.toArray(e.target.classList).indexOf('back-btn') !== -1) {
 
@@ -19,6 +25,10 @@ const SessionModal = React.createClass({
     let password = this.refs.password.value;
 
     store.session.login(username, password);
+
+    this.setState({tempUsername: this.refs.username.value});
+    this.setState({tempPassword: this.refs.password.value});
+
     store.session.set('isLoggingIn', false);
 
     this.props.hideModal();
@@ -38,10 +48,8 @@ const SessionModal = React.createClass({
       store.session.set('isLoggingIn', false);
       store.session.set('isSigningUp', false);
 
-      let tempUsername = this.refs.username.value;
-      let tempPassword = this.refs.username.value;
-
-      
+      this.setState({tempUsername: this.refs.username.value});
+      this.setState({tempPassword: this.refs.password.value});
 
       this.props.hideModal();
   },
@@ -51,8 +59,8 @@ const SessionModal = React.createClass({
       content = (
         <form className="modal-content" onSubmit={this.loginFunction}>
           <h2>Login</h2>
-          <input className="userInfo" type="text" placeholder="username" ref="username" />
-          <input className="userInfo" type="password" placeholder="password" ref="password" />
+          <input id="usernameInput" className="userInfo" type="text" placeholder="username" ref="username" />
+          <input id="usernameInput" className="userInfo" type="password" placeholder="password" ref="password" />
           <input className="userInfoBtn" type="submit" value="submit" ref="submit" onClick={this.loginFunction}/>
           <input className="userInfoBtn" type="button" value="cancel" ref="cancel" onClick={this.cancelFunction}/>
         </form>
