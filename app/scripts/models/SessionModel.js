@@ -10,6 +10,19 @@ const SessionModel = Backbone.Model.extend({
     isSigningUp: false,
     shakeModal: false,
   },
+  getLocation: function() {
+  var promise = new Promise(function(resolve, reject) {
+    if ('geolocation' in navigator) {
+      window.navigator.geolocation.getCurrentPosition(function(position){
+        //result in SessionNav.js
+        console.log(position);
+      });
+    } else {
+      reject('This browser doesn\'t support geolocation...');
+    }
+  });
+  return promise;
+},
   parse: function(response) {
     if (response) {
       return {

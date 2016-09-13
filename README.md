@@ -1,20 +1,53 @@
-# Basic Build with NPM scripts
-This is a project scaffolding and build tool for the TIY Austin Front-End Engineering course. Feel free to use and enjoy! Feedback and PRs welcome!
+# Day 38 Assignment: Beat The Bands:
+ (_I renamed mine from Bring The Band to Beat The Band_)
+A local music venue has asked you to build a promotional app: Bring The Band! Bring the band will allow users to vote for musicians they want to see at the venue. The venue hopes to gain a following, and boost their patron engagement by tracking popular bands, and trends in their market share.
+
+## Build Tools with NPM scripts
+  - JavaScript
+  - React.js
+  - es2015
+  - Backbone.js
+  - underscore.js
+  - SCSS (Sass)
+  - Babeljs.io (compiler)
+  - jQuery (ajax calls)
+
+## APIs
+  - [Spotify](https://developer.spotify.com/web-api/)
+  - Kinvey (see below)
+
+## Cloud Backend
+  [Kinvey](http://devcenter.kinvey.com/rest/guides/datastore) (BaaS)
+  - The simplest use case of Kinvey is storing and retrieving data to and from your cloud backend.
+  - The basic unit of data is an entity and entities of the same kind are organized in collections. An entity is a set of key-value pairs which are stored in the backend in JSON format. Kinvey's libraries automatically translate your native objects to JSON.
+  - Kinvey's data store provides simple CRUD operations on data, as well as powerful filtering and aggregation.
+  - The Appdata API forms one of the core REST services provided by the Kinvey backend.
+
+## Testing
+[Mocha.js](https://mochajs.org/)
+  - Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.
+
+[Chai.js](http://chaijs.com/)
+  - Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+[Enzyme.js](http://airbnb.io/enzyme/docs/api/index.html)
+  - Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output. Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation and traversal.
 
 ## Features
-- A bare bones scaffolding for an SPA, without any libraries built in
-- A static server for serving up your dev environment via http
-- `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
-- `dist` directory for deployable code
-- es2015 and babel, including module syntax
-- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
-- sass (.scss)
-- GeoLocation:
-  - Only used when geolocation is successful
-    - User must agree to retrieving position in order to successfully get current position
-  - See `SessionModel.js` in app/scripts/Controllers
-    - For calling the function, see
-
+  - **Searching**:
+    - Search field queries Spotify's API for bands/artists
+    - Results of the Spotify search are displayed as a list of bands.
+    - User can click on individual band image and are brought to a modal view of additional information on the band/artist
+  - **Voting**:
+    - If user votes on band, the vote is toggled (users cannot vote more than once on a single band)
+    - If a user has already voted for a band, display a "voted" badge instead of the "vote for" button.
+    - Voted page (results) are ordered from greatest amount of votes to least
+    - Keeping track of votes in a separate collection on kinvey ( use a 'join table' ).
+  - **Login/signup functionality**:
+    - User is able to login and access voting features
+    - Users can sign up, and are registered on the backend, via Kinvey
+  - **Anonymous login**
+    - Automatically log in new users with an 'annonymous' account when they arrive at the site, allowing you to keep track of their behavior and let them view votes, but NOT allowing them to vote until they officially sign up.
 
 ## Installation
 - Clone this repo (or fork then clone, if you prefer)
@@ -34,10 +67,3 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 ## Dependencies
 - `sass` [install guide here](http://sass-lang.com/install)
-
-
-//to do
-- who voted on what in scrolling column (onclick) -- list of all the votes
-- add 'then' and 'promise functionality' and explain about it in my readme
-- swipe over/next on bandModal
-- if logging in and change mind, your typed stuff is still saved

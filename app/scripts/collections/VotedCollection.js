@@ -1,6 +1,5 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
-import $ from 'jquery';
 
 import VoteModel from '../models/VoteModel';
 
@@ -48,7 +47,7 @@ const VotedCollection = Backbone.Collection.extend({
     votingBand.set('allVoters', newAllVoters);
     votingBand.save(null, {
       success: (model, response) => {
-        model.set('vewing', false)
+        model.set('vewing', false);
         console.log('YOU VOTED');
       },
       error: function(model, response) {
