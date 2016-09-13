@@ -2,6 +2,9 @@
  (_I renamed mine from Bring The Band to Beat The Band_)
 A local music venue has asked you to build a promotional app: Bring The Band! Bring the band will allow users to vote for musicians they want to see at the venue. The venue hopes to gain a following, and boost their patron engagement by tracking popular bands, and trends in their market share.
 
+# Live Site
+[Beat The Bands](https://shannonriester.github.io/Beat-The-Bands-day-38/#/?_k=8dt3mz)
+
 ## Build Tools with NPM scripts
   - JavaScript
   - React.js
